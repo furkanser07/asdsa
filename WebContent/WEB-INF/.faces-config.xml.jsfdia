@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#login_admin.xhtml" PATH="/login_admin.xhtml"
+  SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#login_admin.xhtml:0" NAME="item"
+   PATH="/login_admin.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="admin_ana::#admin_ana.xhtml" NAME="output"
+    PATH="/admin_ana.xhtml" TARGET="rules:#admin_ana.xhtml"
+    TITLE="admin_ana" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#login.xhtml" PATH="/login.xhtml"
+  SHAPE="32,129,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#login.xhtml:0" NAME="item"
+   PATH="/login.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="ogrt_ana_sayfa::#ogrt_ana_sayfa.xhtml"
+    NAME="output" PATH="/ogrt_ana_sayfa.xhtml"
+    TARGET="rules:#ogrt_ana_sayfa.xhtml" TITLE="ogrt_ana_sayfa" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#ogrt_ana_sayfa.xhtml"
+  PATH="/ogrt_ana_sayfa.xhtml" SHAPE="240,145,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#admin_ana.xhtml" PATH="/admin_ana.xhtml"
+  SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>
