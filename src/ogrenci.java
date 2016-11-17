@@ -39,6 +39,8 @@ public class ogrenci {
 	
 	
 	 private String ogren_no; 
+	 private String kart_no; 
+	 
 	    private String isim;
 	    private String soyisim;
 	    private String tc;
@@ -53,6 +55,17 @@ public class ogrenci {
 	        
 	    }
 	    
+	    
+		public String getKart_no() {
+			return kart_no;
+		}
+
+
+		public void setKart_no(String kart_no) {
+			this.kart_no = kart_no;
+		}
+
+
 		public String getOgren_no() {
 			return ogren_no;
 		}
@@ -118,12 +131,13 @@ public class ogrenci {
 	         PreparedStatement addEntry =
 	         connection.prepareStatement( 
 	         "INSERT INTO ogrenci" +
-	         "(tc,isim,soyisim)" +
-	         "VALUES (?,?,?)" );
+	         "(kart_no,tc,isim,soyisim)" +
+	         "VALUES (?,?,?,?)" );
 
-	         addEntry.setString( 1, getTc());
-	         addEntry.setString( 2, getIsim());
-	         addEntry.setString( 3, getSoyisim());
+	         addEntry.setString( 1, getKart_no());	
+	         addEntry.setString( 2, getTc());
+	         addEntry.setString( 3, getIsim());
+	         addEntry.setString( 4, getSoyisim());
 	        
 
 	         addEntry.executeUpdate(); 
