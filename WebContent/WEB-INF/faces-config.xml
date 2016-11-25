@@ -22,7 +22,7 @@
 <from-view-id>/login.xhtml</from-view-id>	
 <navigation-case>
 <from-outcome>ogrt_ana_sayfa</from-outcome>
-<if>#{ogretmen.girisYap()}</if>
+<if>#{LoginBean.girisYap()}</if>
 <to-view-id>/ogrt_ana_sayfa.xhtml</to-view-id>
 </navigation-case>
 

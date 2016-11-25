@@ -15,6 +15,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -31,8 +33,7 @@ import javax.sql.rowset.CachedRowSet;
  *
  * @author Furkan
  */
-@ManagedBean ( name="ders" )
-@SessionScoped
+
 public class ders {
 
     public ders() {
@@ -56,20 +57,23 @@ public class ders {
     private String kredi;
     CachedRowSet rowSet=null;
     DataSource dataSource;
+    private boolean guncellenebilirlik;
 
     /**
      *
      * @throws SQLException
      */
+    ogretmen ogrt;
     @PostConstruct
     public void init() 
     {
-        try {
+    	ogrt = (ogretmen) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("loginOgrt");
+        /*try {
             list= (ArrayList<ders>) derslerGetir();
         } catch (SQLException ex) {
             Logger.getLogger(ders.class.getName()).log(Level.SEVERE, null, ex);
         }
-      
+      */
     }
     
     
@@ -136,7 +140,27 @@ public class ders {
    
 
    
-     public String getKredi() {
+     public boolean isGuncellenebilirlik() {
+		return guncellenebilirlik;
+	}
+
+
+	public void setGuncellenebilirlik(boolean guncellenebilirlik) {
+		this.guncellenebilirlik = guncellenebilirlik;
+	}
+
+
+	public ogretmen getOgrt() {
+		return ogrt;
+	}
+
+
+	public void setOgrt(ogretmen ogrt) {
+		this.ogrt = ogrt;
+	}
+
+
+	public String getKredi() {
 		return kredi;
 	}
 
@@ -168,62 +192,15 @@ public class ders {
 
 	Connection connection = null;
 	
-	
-	  public String dersEkle() throws SQLException
-      { 
-          try
-   {
-       
-       Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/yoklama","root","root");
-      
-       PreparedStatement addEntry =
-       connection.prepareStatement( 
-       "INSERT INTO ders" +
-       "(ders_isim,kredi,ogret_no)" +
-       "VALUES (?,?,?)" );
-
-       addEntry.setString( 1, getDers_isim());
-       addEntry.setString( 2, getKredi());
-       addEntry.setString( 3, getOgret_no());
-       
-
-       addEntry.executeUpdate(); 
-       return "ders_ekle.xhtml";
-   } 
-   catch(Exception e)
-   {
-       return "ders_gor.xhtml";
-   }
-  finally 
-   {
-   
-   } 
-}  
-	
-	  public String dersSil() throws SQLException
-	  {
-	     try
-	      {
-	          Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/yoklama","root","root");
-	          PreparedStatement deleteEntry = connection.prepareStatement( "delete from ders where ders_no = ? ");
-
-	          deleteEntry.setInt( 1, Integer.parseInt(getDers_no()) );
-	          deleteEntry.executeUpdate(); 
-	          return "ders_ekle"; 
-	      } 
-	      finally
-	      {
-	          
-	      }
-	  }        
-	
+/*	
     public  List<ders> derslerGetir() throws SQLException
     {
-    try{
     	
+    try{
     	Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/yoklama","root","root");
         ArrayList<ders> list1= new ArrayList<ders>();
-        String numara= ogretmen.getOgret_no();
+        
+        String numara= ogrt.getOgret_no();
     
         PreparedStatement ps = connection.prepareStatement( "SELECT * FROM DERS where ogret_no = ?" );
         ps.setString(1, numara);
@@ -281,29 +258,7 @@ public class ders {
  } 
  } 
 
-    
+  */  
       
-      
-      public ResultSet dersGor() throws SQLException
- {
-    
-
-     try
-     {
-Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/yoklama","root","root");
-    
-PreparedStatement ps =
-     connection.prepareStatement( "SELECT * FROM ders" );
-
-
-     rowSet = new com.sun.rowset.CachedRowSetImpl();
-     rowSet.populate( ps.executeQuery() );
-    return rowSet;
-     } 
-     finally
-     {
-     
-     } 
- } 
     
 }

@@ -35,6 +35,18 @@
     
     <link href="src/scss/custom.scss" rel="stylesheet"/>
     <link href="src/scss/table.scss" rel="stylesheet"/>
+    
+    
+    
+    <script>
+            function mesaj(){
+                if(#{ogretmenBean.ogretmenGuncelle()})
+                alert("Güncelleme Başarılı.");
+                else
+                alert("Güncelleme Başarısız.");
+            }
+        </script>
+    
   </h:head>
 
     
@@ -185,7 +197,7 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    
+                    <!--  
                     <h:form id="demo-form2" class="form-horizontal form-label-left">
 
                         <div class="form-group">
@@ -250,7 +262,7 @@
                   
                             
                             <h:commandButton   action="#{ogretmen.ogretmenGuncelle()}"   value="Düzenle" class="btn btn-success" > 
-                           <!--  <f:param name="ogret_no" value="#{ogretmen.ogret_no}" />   --> 
+                             <f:param name="ogret_no" value="#{ogretmen.ogret_no}" />   
                             </h:commandButton>
                             
                             
@@ -259,61 +271,69 @@
                          
                       </div>
                       </h:form>
-                       
+                       -->
                     <div class="ln_solid"></div>
                        
                        <h:form>
                        
-                       <h:dataTable  value="#{ogretmen.ogretmenGor()}" var="ogretmen1" border="0" 
-                                    styleClass="table table-striped table-hover " > 
-			    
-                        
-                            
-                        <h:column>
-                            <f:facet name="header" >Öğretmen Numarası</f:facet>
-				#{ogretmen1.ogret_no}
-			</h:column>
-                            
-                        <h:column>
-				<f:facet name="header">TC</f:facet>
-				#{ogretmen1.tc}
-			</h:column>
-                            
-                        <h:column>
-				<f:facet name="header">İsmi</f:facet>
-				#{ogretmen1.ISIM}
+                    <h:dataTable value="#{ogretmenBean.ogretmenList}"
+											var="var" border="0"
+											styleClass="table table-striped table-hover ">
+
+
+
+											<h:column>
+									<f:facet name="header">Öğretmen Numarası</f:facet>
+								<h:inputText value="#{var.ogret_no}" rendered="#{var.guncellenebilirlik}" style="width: 100px;"/>
+								<h:outputText value="#{var.ogret_no}" rendered="#{not var.guncellenebilirlik}"/>
+											</h:column>
+
+											<h:column>
+												<f:facet name="header">TC</f:facet>
+												<h:inputText value="#{var.tc}" rendered="#{var.guncellenebilirlik}" style="width: 100px;"/>
+								<h:outputText value="#{var.tc}" rendered="#{not var.guncellenebilirlik}"/>
+				
 			</h:column>
 
-			<h:column>
-				<f:facet name="header">Soyisim</f:facet>
-				#{ogretmen1.SOYISIM}		
+											<h:column>
+												<f:facet name="header">İsmi</f:facet>
+												<h:inputText value="#{var.isim}" rendered="#{var.guncellenebilirlik}" style="width: 100px;"/>
+								<h:outputText value="#{var.isim}" rendered="#{not var.guncellenebilirlik}"/>
+				
 			</h:column>
 
-			<h:column>
-				<f:facet name="header">Email</f:facet>
-				#{ogretmen1.email}
+											<h:column>
+												<f:facet name="header">Soyisim</f:facet>
+												<h:inputText value="#{var.soyisim}" rendered="#{var.guncellenebilirlik}" style="width: 100px;"/>
+								<h:outputText value="#{var.soyisim}" rendered="#{not var.guncellenebilirlik}"/>
+						
 			</h:column>
 
-			<h:column>
-				<f:facet name="header">Şifre</f:facet>
-				#{ogretmen1.sifre}
+											<h:column>
+												<f:facet name="header">Email</f:facet>
+												<h:inputText value="#{var.email}" rendered="#{var.guncellenebilirlik}" style="width: 100px;"/>
+								<h:outputText value="#{var.email}" rendered="#{not var.guncellenebilirlik}"/>
+				
 			</h:column>
-                     <!--     
+
+											<h:column>
+												<f:facet name="header">Şifre</f:facet>
+												<h:inputText value="#{var.sifre}" rendered="#{var.guncellenebilirlik}" style="width: 100px;"/>
+								<h:outputText value="#{var.sifre}" rendered="#{not var.guncellenebilirlik}"/>
+				
+			</h:column>
+											    
                           <h:column>
                                 <f:facet name="header">Düzenle</f:facet>				
-                                <h:commandLink value="Düzenle"  action="#{ogretmen.ogretmenGuncelle()}" >
-                                    <f:param name="ogret_no" value="#{ogretmen1.ogret_no}" />
+                                <h:commandLink value="Düzenle"  action="#{ogretmenBean.guncellenebilirligiDegistir(var)}" >
+                                 
                                 </h:commandLink>
                         </h:column>  
-                       -->
-                        <h:column>
-                                <f:facet name="header">Sil</f:facet>				
-                                <h:commandLink value="Sil"  action="#{ogretmen.ogretmenSil()}" >
-                                    <f:param name="ogret_no" value="#{ogretmen1.ogret_no}" />
-                                </h:commandLink>
-                        </h:column>
-                           
-                       </h:dataTable>
+	</h:dataTable>
+				
+<h:commandButton value="	Değişiklikleri Kaydet" action="#{ogretmenBean.DegisikligiKaydet()}"/>
+				
+<h:commandButton value="Güncellemeleri Veri Tabanına Kaydet" action="#{ogretmenBean.ogretmenGuncelle}" onclick="mesaj()"/>
                     </h:form>
                   </div>
                     
@@ -376,6 +396,10 @@
     <script src="../build/js/custom.min.js"></script>
 
     <!-- bootstrap-daterangepicker -->
+    
+    
+    
+    
     <script>
       $(document).ready(function() {
         $('#birthday').daterangepicker({

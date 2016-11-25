@@ -35,6 +35,11 @@
     
     <link href="src/scss/custom.scss" rel="stylesheet"/>
     <link href="src/scss/table.scss" rel="stylesheet"/>
+    
+    
+    
+   
+    
   </h:head>
 
     
@@ -66,7 +71,7 @@
               <div class="menu_section">
                 <h3>Menü</h3>
                 <ul class="nav side-menu">  <!-- aradaki boşluk ne anlama geliyor -->
-                  <li><a href="ogrt_ekle.xhtml">  <i class="fa fa-home"></i> Öğretmen Ekle ve Sil </a>
+               <li><a href="ogrt_ekle.xhtml">  <i class="fa fa-home"></i> Öğretmen Ekle ve Sil </a>
                   </li>
                     <li><a href="ogrt_gun.xhtml">  <i class="fa fa-edit"></i> Öğretmen Güncelle </a>
                   </li>
@@ -89,10 +94,6 @@
                    <li><a href="ders_gor.xhtml">  <i class="fa fa-edit"></i> Ders Bilgisi Görüntüle </a>
                   </li>
                    
-                  
-                 
-
-
 
                 </ul>
               </div>
@@ -189,39 +190,62 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    
+                    <!--  
                     <h:form id="demo-form2" class="form-horizontal form-label-left">
 
-                        
                         <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">İsim <span class="required">*</span>
+                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Öğretmen No <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <h:inputText value="#{dersBean.ders.ders_isim}" class="form-control col-md-7 col-xs-12">
+                            <h:inputText value="#{ogretmen.ogret_no}" class="form-control col-md-7 col-xs-12">
+                        </h:inputText>
+                        </div>
+
+                      </div>
+                        
+                        
+                        <div class="form-group">
+                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">TC 
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <h:inputText value="#{ogretmen.tc}" class="form-control col-md-7 col-xs-12">
                         </h:inputText>
                         </div>
 
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Kredi <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">First Name 
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <h:inputText value="#{dersBean.ders.kredi}"  required="required" class="form-control col-md-7 col-xs-12">
+                            <h:inputText value="#{ogretmen.isim}"  required="required" class="form-control col-md-7 col-xs-12">
                         </h:inputText>
                         </div>
                       </div>
-                      
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Ogretmen numarası <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Last Name 
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <h:inputText value="#{dersBean.ders.ogret_no}"  required="required" class="form-control col-md-7 col-xs-12">
+                            <h:inputText   value="#{ogretmen.soyisim}" required="required" class="form-control col-md-7 col-xs-12">
                         </h:inputText>
                         </div>
                       </div>
-                     
-                         
-                     
+                         <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Email 
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <h:inputText   value="#{ogretmen.email}" required="required" class="form-control col-md-7 col-xs-12">
+                           </h:inputText>     
+                        </div>
+                      </div>
+                         <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Şifre
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <h:inputText   value="#{ogretmen.sifre}" required="required" class="form-control col-md-7 col-xs-12">
+                         </h:inputText>  
+                        </div>
+                      </div>
+                    
                       <div class="ln_solid"></div>
                       
                       
@@ -230,61 +254,67 @@
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-8">
                   
                             
-                            
-                            <h:commandButton  action="#{dersBean.dersEkle()}"   value="Ekle" class="btn btn-success" > 
-                               
+                            <h:commandButton   action="#{ogretmen.ogretmenGuncelle()}"   value="Düzenle" class="btn btn-success" > 
+                             <f:param name="ogret_no" value="#{ogretmen.ogret_no}" />   
                             </h:commandButton>
+                            
                             
 
                         </div>
                          
                       </div>
                       </h:form>
-                       
+                       -->
                     <div class="ln_solid"></div>
                        
                        <h:form>
                        
-                       <h:dataTable  value="#{dersBean.list}" var="ders1" border="0" 
-                                    styleClass="table table-striped table-hover " > 
-			    
-                        
-                            
-                        <h:column>
-                            <f:facet name="header" >Ders Numarası</f:facet>
-				#{ders1.ders_no}
-			</h:column>
-                            
-                        <h:column>
-				<f:facet name="header">Ders ismi</f:facet>
-				#{ders1.ders_isim}
-			</h:column>
-                            
-                        <h:column>
-				<f:facet name="header">Kredisi</f:facet>
-				#{ders1.kredi}
-			</h:column>
-			      <h:column>
-				<f:facet name="header">Öğretmen numarası</f:facet>
-				#{ders1.ogret_no}
+                    <h:dataTable value="#{dersBean.list}"
+											var="var1" border="0"
+											styleClass="table table-striped table-hover ">
+
+
+
+											<h:column>
+									<f:facet name="header">Ders Numarası</f:facet>
+								<h:inputText value="#{var1.ders_no}" rendered="#{var1.guncellenebilirlik}" style="width: 100px;"/>
+								<h:outputText value="#{var1.ders_no}" rendered="#{not var1.guncellenebilirlik}"/>
+											</h:column>
+
+											<h:column>
+												<f:facet name="header">Ders İsmi</f:facet>
+												<h:inputText value="#{var1.ders_isim}" rendered="#{var1.guncellenebilirlik}" style="width: 100px;"/>
+								<h:outputText value="#{var1.ders_isim}" rendered="#{not var1.guncellenebilirlik}"/>
+				
 			</h:column>
 
-                     <!--     
+											<h:column>
+												<f:facet name="header">Kredisi</f:facet>
+												<h:inputText value="#{var1.kredi}" rendered="#{var1.guncellenebilirlik}" style="width: 100px;"/>
+								<h:outputText value="#{var1.kredi}" rendered="#{not var1.guncellenebilirlik}"/>
+				
+			</h:column>
+
+											<h:column>
+												<f:facet name="header">Öğretmen Numarası</f:facet>
+												<h:inputText value="#{var1.ogret_no}" rendered="#{var1.guncellenebilirlik}" style="width: 100px;"/>
+								<h:outputText value="#{var1.ogret_no}" rendered="#{not var1.guncellenebilirlik}"/>
+						
+			</h:column>
+
+											
+											    
                           <h:column>
                                 <f:facet name="header">Düzenle</f:facet>				
-                                <h:commandLink value="Düzenle"  action="#{ders.dersGuncelle()}" >
-                                 <f:param name="ogret_no" value="#{ders1.ogret_no}" />
+                                <h:commandLink value="Düzenle"  action="#{dersBean.guncellenebilirlikDegistir(var1)}" >
+                                 
                                 </h:commandLink>
-                        </h:column>  -->
-                       
-                        <h:column>
-                                <f:facet name="header">Sil</f:facet>				
-                                <h:commandLink value="Sil"  action="#{dersBean.dersSil()}" >
-                                    <f:param name="ders_no"  value="#{ders1.ders_no}" />
-                                </h:commandLink>
-                        </h:column>
-                           
-                       </h:dataTable>
+                        </h:column>  
+	</h:dataTable>
+				
+<h:commandButton value="	Değişiklikleri Kaydet" action="#{dersBean.DegisiklikKaydet()}"/>
+				
+<h:commandButton value="Güncellemeleri Veri Tabanına Kaydet" action="#{dersBean.dersGuncelle()}" onclick="mesaj()"/>
                     </h:form>
                   </div>
                     
@@ -347,6 +377,10 @@
     <script src="../build/js/custom.min.js"></script>
 
     <!-- bootstrap-daterangepicker -->
+    
+    
+    
+    
     <script>
       $(document).ready(function() {
         $('#birthday').daterangepicker({
@@ -363,7 +397,7 @@
     <script>
       $(document).ready(function() {
         function initToolbarBootstrapBindings() {
-          var fonts = ['Serif', 'Sans', 'Arial', 'Arial Black', 'Courier',
+          var1 fonts = ['Serif', 'Sans', 'Arial', 'Arial Black', 'Courier',
               'Courier New', 'Comic Sans MS', 'Helvetica', 'Impact', 'Lucida Grande', 'Lucida Sans', 'Tahoma', 'Times',
               'Times New Roman', 'Verdana'
             ],
@@ -386,13 +420,13 @@
             });
 
           $('[data-role=magic-overlay]').each(function() {
-            var overlay = $(this),
+            var1 overlay = $(this),
               target = $(overlay.data('target'));
             overlay.css('opacity', 0).css('position', 'absolute').offset(target.offset()).width(target.outerWidth()).height(target.outerHeight());
           });
 
           if ("onwebkitspeechchange" in document.createElement("input")) {
-            var editorOffset = $('#editor').offset();
+            var1 editorOffset = $('#editor').offset();
 
             $('.voiceBtn').css('position', 'absolute').offset({
               top: editorOffset.top,
@@ -404,7 +438,7 @@
         }
 
         function showErrorAlert(reason, detail) {
-          var msg = '';
+          var1 msg = '';
           if (reason === 'unsupported-file-type') {
             msg = "Unsupported format " + detail;
           } else {
@@ -475,7 +509,7 @@
           $('#demo-form').parsley().validate();
           validateFront();
         });
-        var validateFront = function() {
+        var1 validateFront = function() {
           if (true === $('#demo-form').parsley().isValid()) {
             $('.bs-callout-info').removeClass('hidden');
             $('.bs-callout-warning').addClass('hidden');
@@ -494,7 +528,7 @@
           $('#demo-form2').parsley().validate();
           validateFront();
         });
-        var validateFront = function() {
+        var1 validateFront = function() {
           if (true === $('#demo-form2').parsley().isValid()) {
             $('.bs-callout-info').removeClass('hidden');
             $('.bs-callout-warning').addClass('hidden');
@@ -521,9 +555,9 @@
     <!-- jQuery autocomplete -->
     <script>
       $(document).ready(function() {
-        var countries = { AD:"Andorra",A2:"Andorra Test",AE:"United Arab Emirates",AF:"Afghanistan",AG:"Antigua and Barbuda",AI:"Anguilla",AL:"Albania",AM:"Armenia",AN:"Netherlands Antilles",AO:"Angola",AQ:"Antarctica",AR:"Argentina",AS:"American Samoa",AT:"Austria",AU:"Australia",AW:"Aruba",AX:"Åland Islands",AZ:"Azerbaijan",BA:"Bosnia and Herzegovina",BB:"Barbados",BD:"Bangladesh",BE:"Belgium",BF:"Burkina Faso",BG:"Bulgaria",BH:"Bahrain",BI:"Burundi",BJ:"Benin",BL:"Saint Barthélemy",BM:"Bermuda",BN:"Brunei",BO:"Bolivia",BQ:"British Antarctic Territory",BR:"Brazil",BS:"Bahamas",BT:"Bhutan",BV:"Bouvet Island",BW:"Botswana",BY:"Belarus",BZ:"Belize",CA:"Canada",CC:"Cocos [Keeling] Islands",CD:"Congo - Kinshasa",CF:"Central African Republic",CG:"Congo - Brazzaville",CH:"Switzerland",CI:"Côte d’Ivoire",CK:"Cook Islands",CL:"Chile",CM:"Cameroon",CN:"China",CO:"Colombia",CR:"Costa Rica",CS:"Serbia and Montenegro",CT:"Canton and Enderbury Islands",CU:"Cuba",CV:"Cape Verde",CX:"Christmas Island",CY:"Cyprus",CZ:"Czech Republic",DD:"East Germany",DE:"Germany",DJ:"Djibouti",DK:"Denmark",DM:"Dominica",DO:"Dominican Republic",DZ:"Algeria",EC:"Ecuador",EE:"Estonia",EG:"Egypt",EH:"Western Sahara",ER:"Eritrea",ES:"Spain",ET:"Ethiopia",FI:"Finland",FJ:"Fiji",FK:"Falkland Islands",FM:"Micronesia",FO:"Faroe Islands",FQ:"French Southern and Antarctic Territories",FR:"France",FX:"Metropolitan France",GA:"Gabon",GB:"United Kingdom",GD:"Grenada",GE:"Georgia",GF:"French Guiana",GG:"Guernsey",GH:"Ghana",GI:"Gibraltar",GL:"Greenland",GM:"Gambia",GN:"Guinea",GP:"Guadeloupe",GQ:"Equatorial Guinea",GR:"Greece",GS:"South Georgia and the South Sandwich Islands",GT:"Guatemala",GU:"Guam",GW:"Guinea-Bissau",GY:"Guyana",HK:"Hong Kong SAR China",HM:"Heard Island and McDonald Islands",HN:"Honduras",HR:"Croatia",HT:"Haiti",HU:"Hungary",ID:"Indonesia",IE:"Ireland",IL:"Israel",IM:"Isle of Man",IN:"India",IO:"British Indian Ocean Territory",IQ:"Iraq",IR:"Iran",IS:"Iceland",IT:"Italy",JE:"Jersey",JM:"Jamaica",JO:"Jordan",JP:"Japan",JT:"Johnston Island",KE:"Kenya",KG:"Kyrgyzstan",KH:"Cambodia",KI:"Kiribati",KM:"Comoros",KN:"Saint Kitts and Nevis",KP:"North Korea",KR:"South Korea",KW:"Kuwait",KY:"Cayman Islands",KZ:"Kazakhstan",LA:"Laos",LB:"Lebanon",LC:"Saint Lucia",LI:"Liechtenstein",LK:"Sri Lanka",LR:"Liberia",LS:"Lesotho",LT:"Lithuania",LU:"Luxembourg",LV:"Latvia",LY:"Libya",MA:"Morocco",MC:"Monaco",MD:"Moldova",ME:"Montenegro",MF:"Saint Martin",MG:"Madagascar",MH:"Marshall Islands",MI:"Midway Islands",MK:"Macedonia",ML:"Mali",MM:"Myanmar [Burma]",MN:"Mongolia",MO:"Macau SAR China",MP:"Northern Mariana Islands",MQ:"Martinique",MR:"Mauritania",MS:"Montserrat",MT:"Malta",MU:"Mauritius",MV:"Maldives",MW:"Malawi",MX:"Mexico",MY:"Malaysia",MZ:"Mozambique",NA:"Namibia",NC:"New Caledonia",NE:"Niger",NF:"Norfolk Island",NG:"Nigeria",NI:"Nicaragua",NL:"Netherlands",NO:"Norway",NP:"Nepal",NQ:"Dronning Maud Land",NR:"Nauru",NT:"Neutral Zone",NU:"Niue",NZ:"New Zealand",OM:"Oman",PA:"Panama",PC:"Pacific Islands Trust Territory",PE:"Peru",PF:"French Polynesia",PG:"Papua New Guinea",PH:"Philippines",PK:"Pakistan",PL:"Poland",PM:"Saint Pierre and Miquelon",PN:"Pitcairn Islands",PR:"Puerto Rico",PS:"Palestinian Territories",PT:"Portugal",PU:"U.S. Miscellaneous Pacific Islands",PW:"Palau",PY:"Paraguay",PZ:"Panama Canal Zone",QA:"Qatar",RE:"Réunion",RO:"Romania",RS:"Serbia",RU:"Russia",RW:"Rwanda",SA:"Saudi Arabia",SB:"Solomon Islands",SC:"Seychelles",SD:"Sudan",SE:"Sweden",SG:"Singapore",SH:"Saint Helena",SI:"Slovenia",SJ:"Svalbard and Jan Mayen",SK:"Slovakia",SL:"Sierra Leone",SM:"San Marino",SN:"Senegal",SO:"Somalia",SR:"Suriname",ST:"São Tomé and Príncipe",SU:"Union of Soviet Socialist Republics",SV:"El Salvador",SY:"Syria",SZ:"Swaziland",TC:"Turks and Caicos Islands",TD:"Chad",TF:"French Southern Territories",TG:"Togo",TH:"Thailand",TJ:"Tajikistan",TK:"Tokelau",TL:"Timor-Leste",TM:"Turkmenistan",TN:"Tunisia",TO:"Tonga",TR:"Turkey",TT:"Trinidad and Tobago",TV:"Tuvalu",TW:"Taiwan",TZ:"Tanzania",UA:"Ukraine",UG:"Uganda",UM:"U.S. Minor Outlying Islands",US:"United States",UY:"Uruguay",UZ:"Uzbekistan",VA:"Vatican City",VC:"Saint Vincent and the Grenadines",VD:"North Vietnam",VE:"Venezuela",VG:"British Virgin Islands",VI:"U.S. Virgin Islands",VN:"Vietnam",VU:"Vanuatu",WF:"Wallis and Futuna",WK:"Wake Island",WS:"Samoa",YD:"People's Democratic Republic of Yemen",YE:"Yemen",YT:"Mayotte",ZA:"South Africa",ZM:"Zambia",ZW:"Zimbabwe",ZZ:"Unknown or Invalid Region" };
+        var1 countries = { AD:"Andorra",A2:"Andorra Test",AE:"United Arab Emirates",AF:"Afghanistan",AG:"Antigua and Barbuda",AI:"Anguilla",AL:"Albania",AM:"Armenia",AN:"Netherlands Antilles",AO:"Angola",AQ:"Antarctica",AR:"Argentina",AS:"American Samoa",AT:"Austria",AU:"Australia",AW:"Aruba",AX:"Åland Islands",AZ:"Azerbaijan",BA:"Bosnia and Herzegovina",BB:"Barbados",BD:"Bangladesh",BE:"Belgium",BF:"Burkina Faso",BG:"Bulgaria",BH:"Bahrain",BI:"Burundi",BJ:"Benin",BL:"Saint Barthélemy",BM:"Bermuda",BN:"Brunei",BO:"Bolivia",BQ:"British Antarctic Territory",BR:"Brazil",BS:"Bahamas",BT:"Bhutan",BV:"Bouvet Island",BW:"Botswana",BY:"Belarus",BZ:"Belize",CA:"Canada",CC:"Cocos [Keeling] Islands",CD:"Congo - Kinshasa",CF:"Central African Republic",CG:"Congo - Brazzaville",CH:"Switzerland",CI:"Côte d’Ivoire",CK:"Cook Islands",CL:"Chile",CM:"Cameroon",CN:"China",CO:"Colombia",CR:"Costa Rica",CS:"Serbia and Montenegro",CT:"Canton and Enderbury Islands",CU:"Cuba",CV:"Cape Verde",CX:"Christmas Island",CY:"Cyprus",CZ:"Czech Republic",DD:"East Germany",DE:"Germany",DJ:"Djibouti",DK:"Denmark",DM:"Dominica",DO:"Dominican Republic",DZ:"Algeria",EC:"Ecuador",EE:"Estonia",EG:"Egypt",EH:"Western Sahara",ER:"Eritrea",ES:"Spain",ET:"Ethiopia",FI:"Finland",FJ:"Fiji",FK:"Falkland Islands",FM:"Micronesia",FO:"Faroe Islands",FQ:"French Southern and Antarctic Territories",FR:"France",FX:"Metropolitan France",GA:"Gabon",GB:"United Kingdom",GD:"Grenada",GE:"Georgia",GF:"French Guiana",GG:"Guernsey",GH:"Ghana",GI:"Gibraltar",GL:"Greenland",GM:"Gambia",GN:"Guinea",GP:"Guadeloupe",GQ:"Equatorial Guinea",GR:"Greece",GS:"South Georgia and the South Sandwich Islands",GT:"Guatemala",GU:"Guam",GW:"Guinea-Bissau",GY:"Guyana",HK:"Hong Kong SAR China",HM:"Heard Island and McDonald Islands",HN:"Honduras",HR:"Croatia",HT:"Haiti",HU:"Hungary",ID:"Indonesia",IE:"Ireland",IL:"Israel",IM:"Isle of Man",IN:"India",IO:"British Indian Ocean Territory",IQ:"Iraq",IR:"Iran",IS:"Iceland",IT:"Italy",JE:"Jersey",JM:"Jamaica",JO:"Jordan",JP:"Japan",JT:"Johnston Island",KE:"Kenya",KG:"Kyrgyzstan",KH:"Cambodia",KI:"Kiribati",KM:"Comoros",KN:"Saint Kitts and Nevis",KP:"North Korea",KR:"South Korea",KW:"Kuwait",KY:"Cayman Islands",KZ:"Kazakhstan",LA:"Laos",LB:"Lebanon",LC:"Saint Lucia",LI:"Liechtenstein",LK:"Sri Lanka",LR:"Liberia",LS:"Lesotho",LT:"Lithuania",LU:"Luxembourg",LV:"Latvia",LY:"Libya",MA:"Morocco",MC:"Monaco",MD:"Moldova",ME:"Montenegro",MF:"Saint Martin",MG:"Madagascar",MH:"Marshall Islands",MI:"Midway Islands",MK:"Macedonia",ML:"Mali",MM:"Myanmar [Burma]",MN:"Mongolia",MO:"Macau SAR China",MP:"Northern Mariana Islands",MQ:"Martinique",MR:"Mauritania",MS:"Montserrat",MT:"Malta",MU:"Mauritius",MV:"Maldives",MW:"Malawi",MX:"Mexico",MY:"Malaysia",MZ:"Mozambique",NA:"Namibia",NC:"New Caledonia",NE:"Niger",NF:"Norfolk Island",NG:"Nigeria",NI:"Nicaragua",NL:"Netherlands",NO:"Norway",NP:"Nepal",NQ:"Dronning Maud Land",NR:"Nauru",NT:"Neutral Zone",NU:"Niue",NZ:"New Zealand",OM:"Oman",PA:"Panama",PC:"Pacific Islands Trust Territory",PE:"Peru",PF:"French Polynesia",PG:"Papua New Guinea",PH:"Philippines",PK:"Pakistan",PL:"Poland",PM:"Saint Pierre and Miquelon",PN:"Pitcairn Islands",PR:"Puerto Rico",PS:"Palestinian Territories",PT:"Portugal",PU:"U.S. Miscellaneous Pacific Islands",PW:"Palau",PY:"Paraguay",PZ:"Panama Canal Zone",QA:"Qatar",RE:"Réunion",RO:"Romania",RS:"Serbia",RU:"Russia",RW:"Rwanda",SA:"Saudi Arabia",SB:"Solomon Islands",SC:"Seychelles",SD:"Sudan",SE:"Sweden",SG:"Singapore",SH:"Saint Helena",SI:"Slovenia",SJ:"Svalbard and Jan Mayen",SK:"Slovakia",SL:"Sierra Leone",SM:"San Marino",SN:"Senegal",SO:"Somalia",SR:"Suriname",ST:"São Tomé and Príncipe",SU:"Union of Soviet Socialist Republics",SV:"El Salvador",SY:"Syria",SZ:"Swaziland",TC:"Turks and Caicos Islands",TD:"Chad",TF:"French Southern Territories",TG:"Togo",TH:"Thailand",TJ:"Tajikistan",TK:"Tokelau",TL:"Timor-Leste",TM:"Turkmenistan",TN:"Tunisia",TO:"Tonga",TR:"Turkey",TT:"Trinidad and Tobago",TV:"Tuvalu",TW:"Taiwan",TZ:"Tanzania",UA:"Ukraine",UG:"Uganda",UM:"U.S. Minor Outlying Islands",US:"United States",UY:"Uruguay",UZ:"Uzbekistan",VA:"Vatican City",VC:"Saint Vincent and the Grenadines",VD:"North Vietnam",VE:"Venezuela",VG:"British Virgin Islands",VI:"U.S. Virgin Islands",VN:"Vietnam",VU:"Vanuatu",WF:"Wallis and Futuna",WK:"Wake Island",WS:"Samoa",YD:"People's Democratic Republic of Yemen",YE:"Yemen",YT:"Mayotte",ZA:"South Africa",ZM:"Zambia",ZW:"Zimbabwe",ZZ:"Unknown or Invalid Region" };
 
-        var countriesArray = $.map(countries, function(value, key) {
+        var1 countriesArray = $.map(countries, function(value, key) {
           return {
             value: value,
             data: key

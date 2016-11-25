@@ -14,6 +14,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -33,11 +34,11 @@ import javax.sql.rowset.CachedRowSet;
 import com.mysql.jdbc.Util;
 
 @ManagedBean ( name="ogrenci" )
-@SessionScoped
+@ViewScoped
 
 public class ogrenci {
 	
-	
+	@ManagedProperty(value="#{param.ogren_no}")
 	 private String ogren_no; 
 	 private String kart_no; 
 	 

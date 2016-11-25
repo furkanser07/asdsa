@@ -43,15 +43,15 @@
             <h:form>
               <h1 style="margin-left: 20px; margin-right: 20px;">Öğretmen Girişi</h1>
               <div>
-              <h:inputText a:placeholder="Email adresinizi girin.."  id="email" value="#{ogretmen.email}"  class="form-control"  required="" />
+              <h:inputText a:placeholder="Email adresinizi girin.."  id="email" value="#{ogretmenBean.ogretmen.email}"  class="form-control"  required="" />
                
               </div>
               <div>
-                <h:inputSecret a:placeholder="Şifrenizi girin.."  id="sifre"   value="#{ogretmen.sifre}" class="form-control"  required="" />
+                <h:inputSecret a:placeholder="Şifrenizi girin.."  id="sifre"   value="#{ogretmenBean.ogretmen.sifre}" class="form-control"  required="" />
               </div> 
               <div>
                   <h:commandButton  class="btn btn-success submit"  
-			value="Login"   action="#{ogretmen.girisYap()}" >     </h:commandButton>
+			value="Giriş Yap"   action="#{loginBean.girisYap()}" >     </h:commandButton>
                   
                   
                  <!--  <h:commandLink class="reset_pass"> Şifremi Unuttum?</h:commandLink> -->
