@@ -24,6 +24,8 @@ public class OgretmenBean {
 	private ogretmen ogretmen;
 	private List<ogretmen> ogretmenList = new ArrayList<>();
 	private List<ogretmen> guncelleList = new ArrayList<>();
+	private List<not> notList = new ArrayList<>();
+	
 	
 	private HtmlForm form = new HtmlForm();
 
@@ -42,7 +44,7 @@ public class OgretmenBean {
 	    {
 	        e.printStackTrace();
 	    } 
-	    }
+ }
 	
 	public void initOgretmenList(){
 		// ogretmenList : read from db

@@ -167,7 +167,7 @@ public class DersBean {
 	        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/yoklama","root","root");
 	       
 	        PreparedStatement update = connection.prepareStatement( "UPDATE ders SET ders_isim=?,kredi=?,"
-	                + "ogret_no=?, WHERE ders_no=?" );
+	                + "ogret_no=? WHERE ders_no=?" );
 	        for(ders item:list){
 	        update.setString( 1, item.getDers_isim());        
 	        update.setString( 2, item.getKredi());       

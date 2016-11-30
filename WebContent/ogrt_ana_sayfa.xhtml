@@ -61,6 +61,11 @@
     user-select: none;
 }
 
+#myUL li {
+font-size: 15px;
+}
+
+
 /* Set all odd list items to a different color (zebra-stripes) */
 #myUL ul li:nth-child(odd) {
     background: #f9f9f9;
@@ -155,7 +160,7 @@ input {
               
               <div class="profile_info" >
                 <span>Hoşgeldiniz,</span>
-                <h2>#{ogretmen.isim} #{ogretmen.soyisim}</h2>
+                <h2>#{loginBean.ogrt1.isim} #{ogretmen.soyisim}</h2>
               </div>
             </div>
             <!-- /menu profile quick info -->

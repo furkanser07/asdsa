@@ -23,9 +23,9 @@ import javax.servlet.http.HttpSession;
 @ManagedBean
 @SessionScoped
 
-public class LoginBean implements Filter {
+public class LoginBean  {
 
-	ogretmen ogrt1 = new ogretmen();
+	private ogretmen ogrt1 = new ogretmen();
 	
 	public boolean girisYap1(String username, String password) throws SQLException 
 	{
@@ -108,49 +108,59 @@ public class LoginBean implements Filter {
 		return "login";
 		
 	}
-	
-	
-	
-	
-	
-	
-	@Override
-	public void destroy() {
-		// TODO Auto-generated method stub
-		
+
+
+	public ogretmen getOgrt1() {
+		return ogrt1;
 	}
 
-	@Override
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)throws IOException, ServletException 
-	{
-	try{
-		
-	HttpServletRequest reqt = (HttpServletRequest) request;
-	HttpServletResponse resp = (HttpServletResponse) response;
-	HttpSession ses = reqt.getSession(false);
-	
-		String reqURI = reqt.getRequestURI();
-		
-	if (reqURI.indexOf("/login.xhtml") >= 0
-			|| (ses != null && ses.getAttribute("email") != null)
-			|| reqURI.indexOf("/public/") >= 0
-			|| reqURI.contains("javax.faces.resource"))
-			chain.doFilter(request, response);
-		else
-			resp.sendRedirect(reqt.getContextPath() + "/faces/login.xhtml");
-	} 
-	
-	catch (Exception e) {
-		System.out.println(e.getMessage());
-	
-	}
-		
+
+	public void setOgrt1(ogretmen ogrt1) {
+		this.ogrt1 = ogrt1;
 	}
 	
-	@Override
-	public void init(FilterConfig arg0) throws ServletException {
-		// TODO Auto-generated method stub
-		
-	}
+	
+	
+	
+	
+	
+//	@Override
+//	public void destroy() {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//
+//	@Override
+//	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)throws IOException, ServletException 
+//	{
+//	try{
+//		
+//	HttpServletRequest reqt = (HttpServletRequest) request;
+//	HttpServletResponse resp = (HttpServletResponse) response;
+//	HttpSession ses = reqt.getSession(false);
+//	
+//		String reqURI = reqt.getRequestURI();
+//		
+//	if (reqURI.indexOf("/login.xhtml") >= 0
+//			|| (ses != null && ses.getAttribute("email") != null)
+//			|| reqURI.indexOf("/public/") >= 0
+//			|| reqURI.contains("javax.faces.resource"))
+//			chain.doFilter(request, response);
+//		else
+//			resp.sendRedirect(reqt.getContextPath() + "/faces/login.xhtml");
+//	} 
+//	
+//	catch (Exception e) {
+//		System.out.println(e.getMessage());
+//	
+//	}
+//		
+//	}
+//	
+//	@Override
+//	public void init(FilterConfig arg0) throws ServletException {
+//		// TODO Auto-generated method stub
+//		
+//	}
 
 }
