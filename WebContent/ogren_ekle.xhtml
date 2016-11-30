@@ -70,24 +70,21 @@
                   </li>
                     <li><a href="ogrt_gun.xhtml">  <i class="fa fa-edit"></i> Öğretmen Güncelle </a>
                   </li>
-                   <li><a href="ogrt_gor.xhtml">  <i class="fa fa-edit"></i> Öğretmen Bilgisi Görüntüle </a>
-                  </li>
+                   
                     
                     <li><a href="ogren_ekle.xhtml">  <i class="fa fa-home"></i> Öğrenci Ekle ve Sil </a>
                   </li>
                  
                   <li><a href="ogren_gun.xhtml">  <i class="fa fa-edit"></i> Öğrenci Güncelle </a>
                   </li>
-                   <li><a href="ogren_gor.xhtml">  <i class="fa fa-edit"></i> Öğrenci Bilgisi Görüntüle </a>
-                  </li>
+                  
                   
                   <li><a href="ders_ekle.xhtml">  <i class="fa fa-home"></i> Ders Ekle ve Sil </a>
                   </li>
                  
                   <li><a href="ders_gun.xhtml">  <i class="fa fa-edit"></i> Ders Güncelle </a>
                   </li>
-                   <li><a href="ders_gor.xhtml">  <i class="fa fa-edit"></i> Ders Bilgisi Görüntüle </a>
-                  </li>
+                   
                    
 
 
@@ -98,22 +95,7 @@
             </div>
             <!-- /sidebar menu -->
 
-            <!-- /menu footer buttons -->
-            <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" data-placement="top" title="Settings">
-                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Lock">
-                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout">
-                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-              </a>
-            </div>
-            <!-- /menu footer buttons -->
+     
           </div>
         </div>
 
@@ -194,7 +176,7 @@
                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Kart Id <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <h:inputText value="#{ogrenci.kart_no}" class="form-control col-md-7 col-xs-12">
+                            <h:inputText value="#{ogrenciBean.ogrenci.kart_no}" class="form-control col-md-7 col-xs-12">
                         </h:inputText>
                         </div>
 
@@ -204,7 +186,7 @@
                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">TC <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <h:inputText value="#{ogrenci.tc}" class="form-control col-md-7 col-xs-12">
+                            <h:inputText value="#{ogrenciBean.ogrenci.tc}" class="form-control col-md-7 col-xs-12">
                         </h:inputText>
                         </div>
 
@@ -213,7 +195,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">First Name <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <h:inputText value="#{ogrenci.isim}"  required="required" class="form-control col-md-7 col-xs-12">
+                            <h:inputText value="#{ogrenciBean.ogrenci.isim}"  required="required" class="form-control col-md-7 col-xs-12">
                         </h:inputText>
                         </div>
                       </div>
@@ -221,7 +203,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Last Name <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <h:inputText   value="#{ogrenci.soyisim}" required="required" class="form-control col-md-7 col-xs-12">
+                            <h:inputText   value="#{ogrenciBean.ogrenci.soyisim}" required="required" class="form-control col-md-7 col-xs-12">
                         </h:inputText>
                         </div>
                       </div>
@@ -237,7 +219,7 @@
                   
                             
                             
-                            <h:commandButton  action="#{ogrenci.ogrenciEkle()}"   value="Ekle" class="btn btn-success" > 
+                            <h:commandButton  action="#{ogrenciBean.ogrenciEkle()}"   value="Ekle" class="btn btn-success" > 
                                
                             </h:commandButton>
                             
@@ -251,7 +233,7 @@
                        
                        <h:form>
                        
-                       <h:dataTable  value="#{ogrenci.ogrenciGor()}" var="ogrenci1" border="0" 
+                       <h:dataTable  value="#{ogrenciBean.ogrenciList}" var="ogrenci1" border="0" 
                                     styleClass="table table-striped table-hover " > 
 			    
                     
@@ -272,26 +254,20 @@
                             
                         <h:column>
 				<f:facet name="header">İsmi</f:facet>
-				#{ogrenci1.ISIM}
+				#{ogrenci1.isim}
 			</h:column>
 
 			<h:column>
 				<f:facet name="header">Soyisim</f:facet>
-				#{ogrenci1.SOYISIM}		
+				#{ogrenci1.soyisim}		
 			</h:column>
 
 			
-                     <!--     
-                          <h:column>
-                                <f:facet name="header">Düzenle</f:facet>				
-                                <h:commandLink value="Düzenle"  action="#{ogrenci.ogrenciGuncelle()}" >
-                                 <f:param name="ogret_no" value="#{ogrenci1.ogret_no}" />
-                                </h:commandLink>
-                        </h:column>  -->
+                     
                        
                         <h:column>
                                 <f:facet name="header">Sil</f:facet>				
-                                <h:commandLink value="Sil"  action="#{ogrenci.ogrenciSil()}" >
+                                <h:commandLink value="Sil"  action="#{ogrenciBean.ogrenciSil()}" >
                                     <f:param name="ogren_no" id="ogren_no" value="#{ogrenci1.ogren_no}" />
                                 </h:commandLink>
                         </h:column>

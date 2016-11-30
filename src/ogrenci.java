@@ -33,21 +33,18 @@ import javax.sql.rowset.CachedRowSet;
 
 import com.mysql.jdbc.Util;
 
-@ManagedBean ( name="ogrenci" )
-@ViewScoped
+
 
 public class ogrenci {
 	
-	@ManagedProperty(value="#{param.ogren_no}")
+	
 	 private String ogren_no; 
 	 private String kart_no; 
-	 
-	    private String isim;
-	    private String soyisim;
-	    private String tc;
+	 private boolean guncellenebilirlik;
+	 private String isim;
+	 private String soyisim;
+	 private String tc;
 	    
-	    CachedRowSet rowSet=null;
-	    DataSource dataSource;
 	    
 	    
 	    @PostConstruct
@@ -57,6 +54,16 @@ public class ogrenci {
 	    }
 	    
 	    
+		public boolean isGuncellenebilirlik() {
+			return guncellenebilirlik;
+		}
+
+
+		public void setGuncellenebilirlik(boolean guncellenebilirlik) {
+			this.guncellenebilirlik = guncellenebilirlik;
+		}
+
+
 		public String getKart_no() {
 			return kart_no;
 		}
@@ -91,143 +98,25 @@ public class ogrenci {
 		public void setTc(String tc) {
 			this.tc = tc;
 		}
+	
+	
 		
-
 		
-		 public CachedRowSet getRowSet() {
-			return rowSet;
-		}
-		public void setRowSet(CachedRowSet rowSet) {
-			this.rowSet = rowSet;
-		}
-		public DataSource getDataSource() {
-			return dataSource;
-		}
-		public void setDataSource(DataSource dataSource) {
-			this.dataSource = dataSource;
-		}
 		public ogrenci() 
 		    { 
 		        try 
-		    {
-		        Class.forName("com.mysql.jdbc.Driver");
-		    } catch (final ClassNotFoundException e) 
-		    {
-		        e.printStackTrace();
-		    }   
+		        {
+		        	Class.forName("com.mysql.jdbc.Driver");
+		        } 
+		        catch (final ClassNotFoundException e) 
+		        {
+		        	e.printStackTrace();
+		        }   
 		        
-		        
-		        
-
 		    }
 		 
 		 
-		 public String ogrenciEkle() throws SQLException
-	        { 
-	            try
-	     {
-	         
-	         Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/yoklama","root","root");
-	        
-	         PreparedStatement addEntry =
-	         connection.prepareStatement( 
-	         "INSERT INTO ogrenci" +
-	         "(kart_no,tc,isim,soyisim)" +
-	         "VALUES (?,?,?,?)" );
-
-	         addEntry.setString( 1, getKart_no());	
-	         addEntry.setString( 2, getTc());
-	         addEntry.setString( 3, getIsim());
-	         addEntry.setString( 4, getSoyisim());
-	        
-
-	         addEntry.executeUpdate(); 
-	         return "admin_ana.xhtml";
-	     } 
-	     catch(Exception e)
-	     {
-	         return "admin_ana.xhtml";
-	     }
-	    finally 
-	     {
-	     
-	     } 
-	 }  
 		 
-		 
-		 public String ogrenciGuncelle() throws SQLException
-		 {
-		   
-
-		    try
-		    {
-		        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/yoklama","root","root");
-		       
-		        PreparedStatement update = connection.prepareStatement( "UPDATE ogrenci SET tc=?,isim=?,soyisim=?,"
-		                + " WHERE ogren_no=?" );
-
-		        update.setString( 1, getTc());        
-		        update.setString( 2, getIsim());       
-		        update.setString( 3, getSoyisim());        
-		            
-		        update.setInt( 4, Integer.parseInt(getOgren_no()) );
-		        
-		        update.executeUpdate();
-		        
-		        return "admin_ana.xhtml"; 
-		    }
-		    catch(Exception e)
-		    {
-		         return "admin_ana.xhtml";
-		    }
-		    finally
-		    {
-		         
-		    } 
-
-		 }  
-
-		 
-		 public String ogrenciSil() throws SQLException
-		 {
-		   
-
-		     try
-		     {
-		         Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/yoklama","root","root");
-		         PreparedStatement deleteEntry = connection.prepareStatement( "delete from ogrenci where ogren_no =?");
-
-		         deleteEntry.setInt( 1, Integer.parseInt(getOgren_no()) );
-		         deleteEntry.executeUpdate(); 
-		         return "ogren_ekle"; 
-		     } 
-		     finally
-		     {
-		         
-		     }
-		 }        
-		        
-		  public ResultSet ogrenciGor() throws SQLException
-		  {
-		     
-
-		      try
-		      {
-		 Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/yoklama","root","root");
-		      PreparedStatement ps =
-		      connection.prepareStatement( "SELECT * FROM ogrenci" );
-
-
-		      rowSet = new com.sun.rowset.CachedRowSetImpl();
-		      rowSet.populate( ps.executeQuery() );
-		     return rowSet;
-		      } 
-		      finally
-		      {
-		      
-		      } 
-		  } 
-		   
 		   
 }
 

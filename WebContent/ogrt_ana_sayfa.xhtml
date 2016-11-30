@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
   <head>
  
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -31,6 +32,111 @@
      <link href="src/scss/custom.scss" rel="stylesheet"/>
      
        <link href="../src/scss/todo.css" rel="stylesheet"/>	
+       
+       <style>
+       /* Include the padding and border in an element's total width and height */
+* {
+    box-sizing: border-box;
+}
+
+/* Remove margins and padding from the list */
+#myUL ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the list items */
+#myUL ul li {
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    background: #eee;
+    font-size: 30px;
+    transition: 0.2s;
+	font-family: "Times New Roman";
+    /* make the list items unselectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Set all odd list items to a different color (zebra-stripes) */
+#myUL ul li:nth-child(odd) {
+    background: #f9f9f9;
+}
+
+/* Darker background-color on hover */
+ul li:hover {
+    background: #ddd;
+}
+
+/* When clicked on, add a background color and strike out text */
+ul li.checked {
+    background: #888;
+    color: #fff;
+    text-decoration: line-through;
+}
+
+/* Add a "checked" mark when clicked on */
+ul li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+}
+
+/* Style the close button */
+.close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 12px 16px 12px 16px
+}
+
+.close:hover {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Style the header */
+.header {
+	background-size:500px;
+    padding: 30px 40px;
+    color: yellow;
+    text-align: center;
+}
+
+/* Clear floats after the header */
+.header:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#myInput{color:black;}
+
+/* Style the input */
+input {
+    border: none;
+    width: 75%;
+    padding: 10px;
+    float: left;
+    font-size: 16px;
+}
+
+
+
+
+
+       </style>
+      
   </head>
 
   <body class="nav-md todo">
@@ -109,38 +215,30 @@
 
         <!-- page content -->
         <div class="right_col " role="main" >
-          <!-- top tiles -->
-    
-    
-   <!--   <div  class="baslik">
-    <h2>Yapılacaklar Listem</h2>
-    <h:inputText id="myInput"> </h:inputText>
-    <h:button value="Ekle" onclick="newElement()" class="btn btn-primary">  </h:button>
-    </div>
-    
-    <div id="myDIV" class="header">
-  <h2>My To Do List</h2>
-  <input type="text" id="myInput" placeholder="Yapılacak işi giriniz.."> </input> 
-  <span onclick="newElement()" class="addBtn">Add</span>
-  </div> 
-  
-   <h:button value="Ekle" onclick="newElement()" class="btn btn-primary">  </h:button>
-<div>
-
-<ol  id="myUL">
-  <li>Hit the gym</li>
-  <li  class="checked a">Pay bills</li>
-  <li class="a">Meet George</li>
-  <li class="a">Buy eggs</li>
-  <li class="a">Read a book</li>
-  <li class="a">Organize office</li>
-</ol>
-</div>    -->     
-        <!-- /page content -->
-
-        <!-- footer content -->
+        <div class="">
+        <div class="col-md-6 " style="border:1px solid red;">
+        Bilgiler gelecek
+        </div>
         
-        <!-- /footer content -->
+        
+        <div class="col-md-6" >
+        <div id="myDIV" class="row" >
+        
+  <h2 style="color:black; text-align: center; ">NOTLARIM</h2>
+  Buraya notlarınızı,yapacaklarınızı veya hatırlamak istediğiniz bilgilerinizi girebilirsiniz.
+  <h:inputText a:placeholder="Notu giriniz.." style= "width:400px; margin-top:20px; "  id="myInput" > </h:inputText>
+ <h:commandButton style=" height:40px; width:70px; margin-left:20px; margin-top:20px;" onclick="newElement()" class="btn btn-primary"  value="Ekle" > </h:commandButton>
+
+</div>
+<br> </br>
+	
+ 
+<ul id="myUL">
+ 
+</ul>
+        </div>
+        </div>
+         
       </div>
     </div>
 
@@ -187,69 +285,67 @@
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
 
- <!-- 
-<script>
-
+ 
+ <SCRIPT type="text/javascript">
 //Create a "close" button and append it to each list item
-var myNodelist = document.getElementsByTagName("li");
-var i;
-for (i = 0; i &lt; myNodelist.length; i++) {
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  myNodelist[i].appendChild(span);
-}
+ var myNodelist = document.getElementsByTagName("#myUL LI");
+ var i;
+ for (i = 0; i &lt; myNodelist.length; i++) {
+   var span = document.createElement("SPAN");
+   var txt = document.createTextNode("\u00D7");
+   span.className = "close";
+   span.appendChild(txt);
+   myNodelist[i].appendChild(span);
+ }
 
-// Click on a close button to hide the current list item
-var close = document.getElementsByClassName("close");
-var i;
-for (i = 0; i &lt; close.length; i++) {
-  close[i].onclick = function() {
-    var div = this.parentElement;
-    div.style.display = "none";
-  }
-}
+ // Click on a close button to hide the current list item
+ var close = document.getElementsByClassName("close");
+ var i;
+ for (i = 0; i &lt; close.length; i++) {
+   close[i].onclick = function() {
+     var div = this.parentElement;
+     div.style.display = "none";
+   }
+ }
 
-// Add a "checked" symbol when clicking on a list item
-var list = document.querySelector('ul');
-list.addEventListener('click', function(ev) {
-  if (ev.target.tagName === 'LI') {
-    ev.target.classList.toggle('checked');
-  }
-}, false);
+ // Add a "checked" symbol when clicking on a list item
+ var list = document.querySelector('ul');
+ list.addEventListener('click', function(ev) {
+   if (ev.target.tagName === 'LI') {
+     ev.target.classList.toggle('checked');
+   }
+ }, false);
 
-// Create a new list item when clicking on the "Add" button
-function newElement() {
-  var li = document.createElement("li");
-  var inputValue = document.getElementById("myInput").value;
-  var t = document.createTextNode(inputValue);
-  li.appendChild(t);
-  if (inputValue === '') {
-    alert("You must write something!");
-  } else {
-    document.getElementById("myUL").appendChild(li);
-  }
-  document.getElementById("myInput").value = "";
+ // Create a new list item when clicking on the "Add" button
+ function newElement() {
+   var li = document.createElement("li");
+   var inputValue = document.getElementById("myInput").value;
+   var t = document.createTextNode(inputValue);
+   li.appendChild(t);
+   if (inputValue === '') {
+     alert("Bir not giriniz.");
+   } else {
+     document.getElementById("myUL").appendChild(li);
+   }
+   document.getElementById("myInput").value = "";
 
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  li.appendChild(span);
+   var span = document.createElement("SPAN");
+   var txt = document.createTextNode("\u00D7");
+   span.className = "close";
+   span.appendChild(txt);
+   li.appendChild(span);
 
-  for (i = 0; i &lt; close.length; i++) {
-    close[i].onclick = function() {
-      var div = this.parentElement;
-      div.style.display = "none";
-    }
-  }
-}
-
-
-
-</script>
- -->
+   for (i = 0; i &lt; close.length; i++) {
+     close[i].onclick = function() {
+       var div = this.parentElement;
+       div.style.display = "none";
+     }
+   }
+ }
+ </SCRIPT>
+ 
+ 
+ 
     </div>
   </body>
 </html>

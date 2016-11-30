@@ -82,24 +82,20 @@
                   </li>
                     <li><a href="ogrt_gun.xhtml">  <i class="fa fa-edit"></i> Öğretmen Güncelle </a>
                   </li>
-                   <li><a href="ogrt_gor.xhtml">  <i class="fa fa-edit"></i> Öğretmen Bilgisi Görüntüle </a>
-                  </li>
-                    
+                  
                     <li><a href="ogren_ekle.xhtml">  <i class="fa fa-home"></i> Öğrenci Ekle ve Sil </a>
                   </li>
                  
                   <li><a href="ogren_gun.xhtml">  <i class="fa fa-edit"></i> Öğrenci Güncelle </a>
                   </li>
-                   <li><a href="ogren_gor.xhtml">  <i class="fa fa-edit"></i> Öğrenci Bilgisi Görüntüle </a>
-                  </li>
+                   
                   
                   <li><a href="ders_ekle.xhtml">  <i class="fa fa-home"></i> Ders Ekle ve Sil </a>
                   </li>
                  
                   <li><a href="ders_gun.xhtml">  <i class="fa fa-edit"></i> Ders Güncelle </a>
                   </li>
-                   <li><a href="ders_gor.xhtml">  <i class="fa fa-edit"></i> Ders Bilgisi Görüntüle </a>
-                  </li>
+                 
                    
 
                 </ul>
@@ -109,32 +105,14 @@
             </div>
             <!-- /sidebar menu -->
 
-            <!-- /menu footer buttons -->
-            <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" data-placement="top" title="Settings">
-                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Lock">
-                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout">
-                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-              </a>
-            </div>
-            <!-- /menu footer buttons -->
+           
           </div>
         </div>
 
         <div class="top_nav">
           <div class="nav_menu">
             <nav>
-              <div class="nav toggle">
-                <a id="menu_toggle"><i class="fa fa-bars"></i></a> <!--bunun id'sinin karşılığı nerede-->
-              </div>
-
+             
               <ul class="nav navbar-nav navbar-right"> <!-- bu boşluklar.... ve o mesaj kutucuğu nerede?-->
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -197,81 +175,7 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <!--  
-                    <h:form id="demo-form2" class="form-horizontal form-label-left">
-
-                        <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Öğretmen No <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <h:inputText value="#{ogretmen.ogret_no}" class="form-control col-md-7 col-xs-12">
-                        </h:inputText>
-                        </div>
-
-                      </div>
-                        
-                        
-                        <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">TC 
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <h:inputText value="#{ogretmen.tc}" class="form-control col-md-7 col-xs-12">
-                        </h:inputText>
-                        </div>
-
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">First Name 
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <h:inputText value="#{ogretmen.isim}"  required="required" class="form-control col-md-7 col-xs-12">
-                        </h:inputText>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Last Name 
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <h:inputText   value="#{ogretmen.soyisim}" required="required" class="form-control col-md-7 col-xs-12">
-                        </h:inputText>
-                        </div>
-                      </div>
-                         <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Email 
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <h:inputText   value="#{ogretmen.email}" required="required" class="form-control col-md-7 col-xs-12">
-                           </h:inputText>     
-                        </div>
-                      </div>
-                         <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Şifre
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <h:inputText   value="#{ogretmen.sifre}" required="required" class="form-control col-md-7 col-xs-12">
-                         </h:inputText>  
-                        </div>
-                      </div>
-                    
-                      <div class="ln_solid"></div>
-                      
-                      
-                      
-                      <div class="form-group">
-                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-8">
-                  
-                            
-                            <h:commandButton   action="#{ogretmen.ogretmenGuncelle()}"   value="Düzenle" class="btn btn-success" > 
-                             <f:param name="ogret_no" value="#{ogretmen.ogret_no}" />   
-                            </h:commandButton>
-                            
-                            
-
-                        </div>
-                         
-                      </div>
-                      </h:form>
-                       -->
+                   
                     <div class="ln_solid"></div>
                        
                        <h:form>

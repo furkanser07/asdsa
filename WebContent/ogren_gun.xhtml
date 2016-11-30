@@ -70,24 +70,21 @@
                   </li>
                     <li><a href="ogrt_gun.xhtml">  <i class="fa fa-edit"></i> Öğretmen Güncelle </a>
                   </li>
-                   <li><a href="ogrt_gor.xhtml">  <i class="fa fa-edit"></i> Öğretmen Bilgisi Görüntüle </a>
-                  </li>
+                   
                     
                     <li><a href="ogren_ekle.xhtml">  <i class="fa fa-home"></i> Öğrenci Ekle ve Sil </a>
                   </li>
                  
                   <li><a href="ogren_gun.xhtml">  <i class="fa fa-edit"></i> Öğrenci Güncelle </a>
                   </li>
-                   <li><a href="ogren_gor.xhtml">  <i class="fa fa-edit"></i> Öğrenci Bilgisi Görüntüle </a>
-                  </li>
+                   
                   
                   <li><a href="ders_ekle.xhtml">  <i class="fa fa-home"></i> Ders Ekle ve Sil </a>
                   </li>
                  
                   <li><a href="ders_gun.xhtml">  <i class="fa fa-edit"></i> Ders Güncelle </a>
                   </li>
-                   <li><a href="ders_gor.xhtml">  <i class="fa fa-edit"></i> Ders Bilgisi Görüntüle </a>
-                  </li>
+                  
                    
                  
 
@@ -100,32 +97,14 @@
             </div>
             <!-- /sidebar menu -->
 
-            <!-- /menu footer buttons -->
-            <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" data-placement="top" title="Settings">
-                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Lock">
-                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout">
-                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-              </a>
-            </div>
-            <!-- /menu footer buttons -->
+            
           </div>
         </div>
 
         <div class="top_nav">
           <div class="nav_menu">
             <nav>
-              <div class="nav toggle">
-                <a id="menu_toggle"><i class="fa fa-bars"></i></a> <!--bunun id'sinin karşılığı nerede-->
-              </div>
-
+             
               <ul class="nav navbar-nav navbar-right"> <!-- bu boşluklar.... ve o mesaj kutucuğu nerede?-->
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -189,112 +168,55 @@
                   <div class="x_content">
                     <br />
                     
-                    <h:form id="demo-form2" class="form-horizontal form-label-left">
-
-                        <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Öğrenci No <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <h:inputText value="#{ogrenci.ogren_no}" class="form-control col-md-7 col-xs-12">
-                        </h:inputText>
-                        </div>
-
-                      </div>
-                        
-                        
-                        <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">TC 
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <h:inputText value="#{ogrenci.tc}" class="form-control col-md-7 col-xs-12">
-                        </h:inputText>
-                        </div>
-
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">First Name 
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <h:inputText value="#{ogrenci.isim}"  required="required" class="form-control col-md-7 col-xs-12">
-                        </h:inputText>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Last Name 
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <h:inputText   value="#{ogrenci.soyisim}" required="required" class="form-control col-md-7 col-xs-12">
-                        </h:inputText>
-                        </div>
-                      </div>
-                         
-                         
-                    
-                      <div class="ln_solid"></div>
-                      
-                      
-                      
-                      <div class="form-group">
-                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-8">
-                  
-                            
-                            <h:commandButton   action="#{ogrenci.ogrenciGuncelle()}"   value="Düzenle" class="btn btn-success" > 
-                            <f:param name="ogren_no" value="#{ogrenci.ogren_no}" />  
-                            </h:commandButton>
-                            
-                            
-
-                        </div>
-                         
-                      </div>
-                      </h:form>
-                       
                     <div class="ln_solid"></div>
                        
-                       <h:form>
+                        <h:form>
                        
-                       <h:dataTable  value="#{ogrenci.ogrenciGor()}" var="ogrenci1" border="0" 
-                                    styleClass="table table-striped table-hover " > 
-			    
-                        
-                            
-                        <h:column>
-                            <f:facet name="header" >Öğrenci Numarası</f:facet>
-				#{ogrenci1.ogren_no}
-			</h:column>
-                            
-                        <h:column>
-				<f:facet name="header">TC</f:facet>
-				#{ogrenci1.tc}
-			</h:column>
-                            
-                        <h:column>
-				<f:facet name="header">İsmi</f:facet>
-				#{ogrenci1.ISIM}
+                    <h:dataTable value="#{ogrenciBean.ogrenciList}"
+											var="var2" border="0"
+											styleClass="table table-striped table-hover ">
+
+
+
+											<h:column>
+									<f:facet name="header">Öğrenci Numarası</f:facet>
+								<h:inputText value="#{var2.ogren_no}" rendered="#{var2.guncellenebilirlik}" style="width: 100px;"/>
+								<h:outputText value="#{var2.ogren_no}" rendered="#{not var2.guncellenebilirlik}"/>
+											</h:column>
+
+											<h:column>
+												<f:facet name="header">TC</f:facet>
+												<h:inputText value="#{var2.tc}" rendered="#{var2.guncellenebilirlik}" style="width: 100px;"/>
+								<h:outputText value="#{var2.tc}" rendered="#{not var2.guncellenebilirlik}"/>
+				
 			</h:column>
 
-			<h:column>
-				<f:facet name="header">Soyisim</f:facet>
-				#{ogrenci1.SOYISIM}		
+											<h:column>
+												<f:facet name="header">İsmi</f:facet>
+												<h:inputText value="#{var2.isim}" rendered="#{var2.guncellenebilirlik}" style="width: 100px;"/>
+								<h:outputText value="#{var2.isim}" rendered="#{not var2.guncellenebilirlik}"/>
+				
 			</h:column>
 
+											<h:column>
+												<f:facet name="header">Soyisim</f:facet>
+												<h:inputText value="#{var2.soyisim}" rendered="#{var2.guncellenebilirlik}" style="width: 100px;"/>
+								<h:outputText value="#{var2.soyisim}" rendered="#{not var2.guncellenebilirlik}"/>
+						
+			</h:column>
 			
-                     <!--     
+											    
                           <h:column>
                                 <f:facet name="header">Düzenle</f:facet>				
-                                <h:commandLink value="Düzenle"  action="#{ogrenci.ogrenciGuncelle()}" >
-                                    <f:param name="ogren_no" value="#{ogrenci1.ogren_no}" />
+                                <h:commandLink value="Düzenle"  action="#{ogrenciBean.guncellenebilirligiDegistir(var2)}" >
+                                 
                                 </h:commandLink>
                         </h:column>  
-                       -->
-                        <h:column>
-                                <f:facet name="header">Sil</f:facet>				
-                                <h:commandLink value="Sil"  action="#{ogrenci.ogrenciSil()}" >
-                                    <f:param name="ogren_no" value="#{ogrenci1.ogren_no}" />
-                                </h:commandLink>
-                        </h:column>
-                           
-                       </h:dataTable>
+	</h:dataTable>
+				
+<h:commandButton value="	Değişiklikleri Kaydet" action="#{ogrenciBean.DegisikligiKaydet()}"/>
+				
+<h:commandButton value="Güncellemeleri Veri Tabanına Kaydet" action="#{ogrenciBean.ogrenciGuncelle}"/>
                     </h:form>
                   </div>
                     
