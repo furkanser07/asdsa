@@ -207,6 +207,22 @@
                         </h:inputText>
                         </div>
                       </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <h:inputText   value="#{ogrenciBean.ogrenci.email}" required="required" class="form-control col-md-7 col-xs-12">
+                        </h:inputText>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="sifre">Şifre<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <h:inputText   value="#{ogrenciBean.ogrenci.sifre}" required="required" class="form-control col-md-7 col-xs-12">
+                        </h:inputText>
+                        </div>
+                      </div>
                          
                         
                     
@@ -260,6 +276,14 @@
 			<h:column>
 				<f:facet name="header">Soyisim</f:facet>
 				#{ogrenci1.soyisim}		
+			</h:column>
+			<h:column>
+				<f:facet name="header">Email</f:facet>
+				#{ogrenci1.email}		
+			</h:column>
+			<h:column>
+				<f:facet name="header">Şifre</f:facet>
+				#{ogrenci1.sifre}		
 			</h:column>
 
 			

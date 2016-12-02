@@ -1,248 +1,233 @@
-<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html>
-<html lang="tr"
-       xmlns="http://www.w3.org/1999/xhtml"
-       xmlns:h="http://xmlns.jcp.org/jsf/html"
-       xmlns:f="http://xmlns.jcp.org/jsf/core">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<!-- Meta, title, CSS, favicons, etc. -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Bitirme Projesi! | </title>
+	<title>Bitirme Projesi |</title>
 
-    <!-- Bootstrap -->
-    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <!-- Font Awesome -->
-    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
-    <!-- NProgress -->
-    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet"/>
-    <!-- iCheck -->
-    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet"/>
-    <!-- bootstrap-wysiwyg -->
-    <link href="../vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet"/>
-    <!-- Select2 -->
-    <link href="../vendors/select2/dist/css/select2.min.css" rel="stylesheet"/>
-    <!-- Switchery -->
-    <link href="../vendors/switchery/dist/switchery.min.css" rel="stylesheet"/>
-    <!-- starrr -->
-    <link href="../vendors/starrr/dist/starrr.css" rel="stylesheet"/>
+	<!-- Bootstrap -->
+	<link href="../vendors/bootstrap/dist/css/bootstrap.min.css"
+		rel="stylesheet" />
+	<!-- Font Awesome -->
+	<link href="../vendors/font-awesome/css/font-awesome.min.css"
+		rel="stylesheet" />
+	<!-- NProgress -->
+	<link href="../vendors/nprogress/nprogress.css" rel="stylesheet" />
+	<!-- iCheck -->
+	<link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet" />
+	<!-- bootstrap-wysiwyg -->
+	<link href="../vendors/google-code-prettify/bin/prettify.min.css"
+		rel="stylesheet" />
+	<!-- Select2 -->
+	<link href="../vendors/select2/dist/css/select2.min.css"
+		rel="stylesheet" />
+	<!-- Switchery -->
+	<link href="../vendors/switchery/dist/switchery.min.css"
+		rel="stylesheet" />
+	<!-- starrr -->
+	<link href="../vendors/starrr/dist/starrr.css" rel="stylesheet" />
 
-    <!-- Custom Theme Style -->
-    <link href="../build/css/custom.min.css" rel="stylesheet"/>
-    
-     <link href="src/scss/custom.scss" rel="stylesheet"/>
-  </head>
+	<!-- Custom Theme Style -->
+	<link href="../build/css/custom.min.css" rel="stylesheet" />
 
-  <body class="nav-md">
-    <div class="container body">
-      <div class="main_container">
-        <div class="col-md-3 left_col"><!-- Sol menüyü sığdırır.-->
-          <div class="left_col scroll-view"><!-- bunun ne olduğunu sor-->
-            <div class="navbar nav_title" style="border: 0;"><!-- bunun ne olduğunu sor-->
-              <a href="ogrt_ana_sayfa.xhtml" class="site_title"><i class="fa fa-paw"></i><!-- bunun ne olduğunu sor--> <span>Bitirme</span></a> <!-- sol üst köşe-->
-            </div>
-
-       <div class="clearfix"></div><!-- bunun ne olduğunu sor-->
-
-            <!-- menu profile quick info -->
-            <div class="profile" style="display:inline-block;width:100%;">
-              
-              <div class="profile_info" >
-                <span>Hoşgeldiniz,</span>
-                <h2>#{loginBean.ogrt1.isim} #{loginBean.ogrt1.soyisim}</h2>
-              </div>
-            </div>
-            <!-- /menu profile quick info -->
-
-            <br />
-
-            <!-- sidebar menu -->
-            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">  <!-- id sidebar-menu nerde,,, bu class nerde? -->
-              <div class="menu_section">
-                <h3>Menü</h3>
-                <ul class="nav side-menu">  <!-- aradaki boşluk ne anlama geliyor -->
-                  <li><a href="derssec.xhtml">  <i class="fa fa-home"></i> Ders Seç </a>
-                  </li>
-                   <li><a href="ogr_sor.xhtml">  <i class="fa fa-edit"></i> Öğrenci Sorgula </a>
-                  </li>
-                   <li><a href="dev_gor.xhtml">  <i class="fa fa-home"></i> Devamsızlık Görüntüle </a>
-                  </li>  
-                 
+	<link href="src/scss/custom.scss" rel="stylesheet" />
+	<link href="src/scss/table.scss" rel="stylesheet" />
+	
+</h:head>
 
 
+<h:body class="nav-md">
+	<div class="container body">
+		<div class="main_container">
+			<div class="col-md-3 left_col">
+				<!-- Sol menüyü sığdırır.-->
+				<div class="left_col scroll-view">
+					<!-- bunun ne olduğunu sor-->
+					<div class="navbar nav_title" style="border: 0;">
+						<!-- bunun ne olduğunu sor-->
+						<a href="admin_ana.xhtml" class="site_title"><i
+							class="fa fa-paw"></i>
+						<!-- bunun ne olduğunu sor--> <span>Bitirme</span></a>
+						<!-- sol üst köşe-->
+					</div>
 
-                </ul>
-              </div>
+					<div class="clearfix"></div>
+					<!-- bunun ne olduğunu sor-->
 
+					<!-- menu profile quick info -->
+					<div class="profile" style="display: inline-block; width: 100%;">
 
-            </div>
-            <!-- /sidebar menu -->
+						<div class="profile_info">
+							<span>Hoşgeldiniz,</span>
+							<h2>#{loginBean.ogr1.isim} #{loginBean.ogr1.soyisim}</h2>
+						</div>
+					</div>
+					<!-- /menu profile quick info -->
 
-            
-          </div>
-        </div>
+					<br />
 
-        <div class="top_nav">
-          <div class="nav_menu">
-            <nav>
-             
-
-              <ul class="nav navbar-nav navbar-right"> <!-- bu boşluklar.... ve o mesaj kutucuğu nerede?-->
-                <li class="">
-                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                  Furkan Serdaroğlu
-                  <span class=" fa fa-angle-down"></span>
-                  </a>
-                  <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;"> Profile</a></li>
-                    <li>
-                      <a href="javascript:;">
-                        <span class="badge bg-red pull-right">50%</span>
-                        <span>Settings</span>
-                      </a>
-                    </li>
-                    <li><a href="javascript:;">Help</a></li>
-                    <li><a href="login.xhtml" onclick="ogretmen.cikisYap()"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
-                  </ul>
-                </li>
-<!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
-              </ul>
-            </nav>
-          </div>
-        </div>
-        <!-- page content -->
-        <div class="right_col" role="main">
-          <div class="">
-            <div class="page-title">
-              <div class="title_left">
-                <h3>Form Elements</h3>
-              </div>
-
-              <div class="title_right">
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-
-                </div>
-              </div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="row">
-              <div  class="col-md-12 col-sm-12 col-xs-12">
-                <div style="height:500px"  class="x_panel">
-                  <div  class="x_title">
-                    <h2>Form Design <small>different form elements</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <br />
- 
-<h:form   class="form-horizontal form-label-left">
-
-<div class="row">	
-    <h:selectOneMenu value="#{dersBean.ders.ders_no}" class="form-control">
-        <f:selectItems value="#{dersBean.list1}" var="ders2" itemValue="#{ders2.ders_no}" itemLabel="#{ders2.ders_isim}" />
-    </h:selectOneMenu> 
-                        
-     
-                     <div class="ln_solid"></div>
-	 <h:commandButton action="#{dersBean.ogrYoklamaGetir()}" style="height:40px; width:70px; margin-left:20px; margin-top:20px;" value="Ekle"  class="btn btn-success"></h:commandButton>
-	 </div>
-</h:form>
-      
-      
-      
-      <h:form id="formid">
-
-										<h:dataTable value="#{dersBean.ogrlist}"
-											var="var" border="0"
-											styleClass="table table-striped table-hover ">
+					<!-- sidebar menu -->
+					<div id="sidebar-menu"
+						class="main_menu_side hidden-print main_menu">
+						<!-- id sidebar-menu nerde,,, bu class nerde? -->
+						<div class="menu_section">
+							<h3>Menü</h3>
+							<ul class="nav side-menu">
+								<!-- aradaki boşluk ne anlama geliyor -->
+								<li><a href="ogr_ders_sec.xhtml"> <i class="fa fa-home"></i>
+										Ders Ekle ve Sil
+								</a></li>
+								
+							</ul>
+						</div>
 
 
+					</div>
+					<!-- /sidebar menu -->
 
-											<h:column>
-												<f:facet name="header">Öğrenci Numarası</f:facet>
-				#{var.ogren_no}
-			</h:column>
+					
+				</div>
+			</div>
 
-											<h:column>
-												<f:facet name="header">Öğrenci Adı </f:facet>
-				#{var.isim}
-			</h:column>
+			<div class="top_nav">
+				<div class="nav_menu">
+					<nav>
+						
 
-											<h:column>
-												<f:facet name="header">Öğrenci Soyadı</f:facet>
-				#{var.soyisim}
-			</h:column>
+						<ul class="nav navbar-nav navbar-right">
+							<!-- bu boşluklar.... ve o mesaj kutucuğu nerede?-->
+							<li class=""><a href="javascript:;"
+								class="user-profile dropdown-toggle" data-toggle="dropdown"
+								aria-expanded="false"> Furkan Serdaroğlu <span
+									class=" fa fa-angle-down"></span>
+							</a>
+								<ul class="dropdown-menu dropdown-usermenu pull-right">
+									<li><a href="javascript:;"> Profile</a></li>
+									<li><a href="javascript:;"> <span
+											class="badge bg-red pull-right">50%</span> <span>Settings</span>
+									</a></li>
+									<li><a href="javascript:;">Help</a></li>
+									<li><a href="login_admin.xhtml"><i
+											class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+								</ul></li>
+							<!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+						</ul>
+					</nav>
+				</div>
+			</div>
+			<!-- page content -->
+			<div class="right_col" role="main">
+				<div class="">
+					<div class="page-title">
+						<div class="title_left">
+							<h3>Form Elements</h3>
+						</div>
+
+						<div class="title_right">
+							<div
+								class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+					<div class="row">
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<div class="x_panel" style="min-height: 900px;">
+								<div class="x_title">
+									<h2>
+										Form Design <small>different form elements</small>
+									</h2>
+									<ul class="nav navbar-right panel_toolbox">
+										<li><a class="collapse-link"><i
+												class="fa fa-chevron-up"></i></a></li>
+										<li class="dropdown"><a href="#" class="dropdown-toggle"
+											data-toggle="dropdown" role="button" aria-expanded="false"><i
+												class="fa fa-wrench"></i></a>
+											<ul class="dropdown-menu" role="menu">
+												<li><a href="#">Settings 1</a></li>
+												<li><a href="#">Settings 2</a></li>
+											</ul></li>
+										<li><a class="close-link"><i class="fa fa-close"></i></a>
+										</li>
+									</ul>
+									<div class="clearfix"></div>
+								</div>
+								<div class="x_content">
+									<br />
+
+									
+									<div class="ln_solid"></div>
+
+									
+								</div>
 
 
-										</h:dataTable>
-									</h:form>					
-      
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /page content -->
 
-        <!-- footer content -->
-        <footer>
-          
-          <div class="clearfix"></div>
-        </footer>
-        <!-- /footer content -->
-      </div>
-    </div>
 
-    <!-- jQuery -->
-    <script src="../vendors/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- FastClick -->
-    <script src="../vendors/fastclick/lib/fastclick.js"></script>
-    <!-- NProgress -->
-    <script src="../vendors/nprogress/nprogress.js"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-    <!-- iCheck -->
-    <script src="../vendors/iCheck/icheck.min.js"></script>
-    <!-- bootstrap-daterangepicker -->
-    <script src="js/moment/moment.min.js"></script>
-    <script src="js/datepicker/daterangepicker.js"></script>
-    <!-- bootstrap-wysiwyg -->
-    <script src="../vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
-    <script src="../vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
-    <script src="../vendors/google-code-prettify/src/prettify.js"></script>
-    <!-- jQuery Tags Input -->
-    <script src="../vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
-    <!-- Switchery -->
-    <script src="../vendors/switchery/dist/switchery.min.js"></script>
-    <!-- Select2 -->
-    <script src="../vendors/select2/dist/js/select2.full.min.js"></script>
-    <!-- Parsley -->
-    <script src="../vendors/parsleyjs/dist/parsley.min.js"></script>
-    <!-- Autosize -->
-    <script src="../vendors/autosize/dist/autosize.min.js"></script>
-    <!-- jQuery autocomplete -->
-    <script src="../vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
-    <!-- starrr -->
-    <script src="../vendors/starrr/dist/starrr.js"></script>
 
-    <!-- Custom Theme Scripts -->
-    <script src="../build/js/custom.min.js"></script>
 
-    <!-- bootstrap-daterangepicker -->
-    <script>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /page content -->
+
+			<!-- footer content -->
+			<footer> </footer>
+			<!-- /footer content -->
+		</div>
+	</div>
+
+	<!-- jQuery -->
+	<script src="../vendors/jquery/dist/jquery.min.js"></script>
+	<!-- Bootstrap -->
+	<script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+	<!-- FastClick -->
+	<script src="../vendors/fastclick/lib/fastclick.js"></script>
+	<!-- NProgress -->
+	<script src="../vendors/nprogress/nprogress.js"></script>
+	<!-- bootstrap-progressbar -->
+	<script
+		src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+	<!-- iCheck -->
+	<script src="../vendors/iCheck/icheck.min.js"></script>
+	<!-- bootstrap-daterangepicker -->
+	<script src="js/moment/moment.min.js"></script>
+	<script src="js/datepicker/daterangepicker.js"></script>
+	<!-- bootstrap-wysiwyg -->
+	<script src="../vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
+	<script src="../vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
+	<script src="../vendors/google-code-prettify/src/prettify.js"></script>
+	<!-- jQuery Tags Input -->
+	<script src="../vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
+	<!-- Switchery -->
+	<script src="../vendors/switchery/dist/switchery.min.js"></script>
+	<!-- Select2 -->
+	<script src="../vendors/select2/dist/js/select2.full.min.js"></script>
+	<!-- Parsley -->
+	<script src="../vendors/parsleyjs/dist/parsley.min.js"></script>
+	<!-- Autosize -->
+	<script src="../vendors/autosize/dist/autosize.min.js"></script>
+	<!-- jQuery autocomplete -->
+	<script
+		src="../vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
+	<!-- starrr -->
+	<script src="../vendors/starrr/dist/starrr.js"></script>
+
+	<!-- Custom Theme Scripts -->
+	<script src="../build/js/custom.min.js"></script>
+
+	<!-- bootstrap-daterangepicker -->
+	<script>
       $(document).ready(function() {
         $('#birthday').daterangepicker({
           singleDatePicker: true,
@@ -252,9 +237,9 @@
         });
       });
     </script>
-    <!-- /bootstrap-daterangepicker -->
+	<!-- /bootstrap-daterangepicker -->
 
-    <!-- bootstrap-wysiwyg 
+	<!-- bootstrap-wysiwyg
     <script>
       $(document).ready(function() {
         function initToolbarBootstrapBindings() {
@@ -319,28 +304,10 @@
         prettyPrint();
       });
     </script>
-    /bootstrap-wysiwyg -->
+     /bootstrap-wysiwyg -->
 
-
-
-    <script>
-
-                            $("#ddl select").change(function () {
-
-                                if ($(this).find("option:selected").val() != "") {
-
-                                    window.location = $(this).find("option:selected").val();
-
-                                }
-
-
-
-                            });
-
-                        </script>
-
-    <!-- Select2 -->
-    <script>
+	<!-- Select2 -->
+	<script>
       $(document).ready(function() {
         $(".select2_single").select2({
           placeholder: "Select a state",
@@ -354,10 +321,10 @@
         });
       });
     </script>
-    <!-- /Select2 -->
+	<!-- /Select2 -->
 
-    <!-- jQuery Tags Input -->
-    <script>
+	<!-- jQuery Tags Input -->
+	<script>
       function onAddTag(tag) {
         alert("Added a tag: " + tag);
       }
@@ -376,10 +343,10 @@
         });
       });
     </script>
-    <!-- /jQuery Tags Input -->
+	<!-- /jQuery Tags Input -->
 
-    <!-- Parsley -->
-    <script>
+	<!-- Parsley -->
+	<script>
       $(document).ready(function() {
         $.listen('parsley:field:validate', function() {
           validateFront();
@@ -421,18 +388,18 @@
         hljs.initHighlightingOnLoad();
       } catch (err) {}
     </script>
-    <!-- /Parsley -->
+	<!-- /Parsley -->
 
-    <!-- Autosize -->
-    <script>
+	<!-- Autosize -->
+	<script>
       $(document).ready(function() {
         autosize($('.resizable_textarea'));
       });
     </script>
-    <!-- /Autosize -->
+	<!-- /Autosize -->
 
-    <!-- jQuery autocomplete -->
-    <script>
+	<!-- jQuery autocomplete -->
+	<script>
       $(document).ready(function() {
         var countries = { AD:"Andorra",A2:"Andorra Test",AE:"United Arab Emirates",AF:"Afghanistan",AG:"Antigua and Barbuda",AI:"Anguilla",AL:"Albania",AM:"Armenia",AN:"Netherlands Antilles",AO:"Angola",AQ:"Antarctica",AR:"Argentina",AS:"American Samoa",AT:"Austria",AU:"Australia",AW:"Aruba",AX:"Åland Islands",AZ:"Azerbaijan",BA:"Bosnia and Herzegovina",BB:"Barbados",BD:"Bangladesh",BE:"Belgium",BF:"Burkina Faso",BG:"Bulgaria",BH:"Bahrain",BI:"Burundi",BJ:"Benin",BL:"Saint Barthélemy",BM:"Bermuda",BN:"Brunei",BO:"Bolivia",BQ:"British Antarctic Territory",BR:"Brazil",BS:"Bahamas",BT:"Bhutan",BV:"Bouvet Island",BW:"Botswana",BY:"Belarus",BZ:"Belize",CA:"Canada",CC:"Cocos [Keeling] Islands",CD:"Congo - Kinshasa",CF:"Central African Republic",CG:"Congo - Brazzaville",CH:"Switzerland",CI:"Côte d’Ivoire",CK:"Cook Islands",CL:"Chile",CM:"Cameroon",CN:"China",CO:"Colombia",CR:"Costa Rica",CS:"Serbia and Montenegro",CT:"Canton and Enderbury Islands",CU:"Cuba",CV:"Cape Verde",CX:"Christmas Island",CY:"Cyprus",CZ:"Czech Republic",DD:"East Germany",DE:"Germany",DJ:"Djibouti",DK:"Denmark",DM:"Dominica",DO:"Dominican Republic",DZ:"Algeria",EC:"Ecuador",EE:"Estonia",EG:"Egypt",EH:"Western Sahara",ER:"Eritrea",ES:"Spain",ET:"Ethiopia",FI:"Finland",FJ:"Fiji",FK:"Falkland Islands",FM:"Micronesia",FO:"Faroe Islands",FQ:"French Southern and Antarctic Territories",FR:"France",FX:"Metropolitan France",GA:"Gabon",GB:"United Kingdom",GD:"Grenada",GE:"Georgia",GF:"French Guiana",GG:"Guernsey",GH:"Ghana",GI:"Gibraltar",GL:"Greenland",GM:"Gambia",GN:"Guinea",GP:"Guadeloupe",GQ:"Equatorial Guinea",GR:"Greece",GS:"South Georgia and the South Sandwich Islands",GT:"Guatemala",GU:"Guam",GW:"Guinea-Bissau",GY:"Guyana",HK:"Hong Kong SAR China",HM:"Heard Island and McDonald Islands",HN:"Honduras",HR:"Croatia",HT:"Haiti",HU:"Hungary",ID:"Indonesia",IE:"Ireland",IL:"Israel",IM:"Isle of Man",IN:"India",IO:"British Indian Ocean Territory",IQ:"Iraq",IR:"Iran",IS:"Iceland",IT:"Italy",JE:"Jersey",JM:"Jamaica",JO:"Jordan",JP:"Japan",JT:"Johnston Island",KE:"Kenya",KG:"Kyrgyzstan",KH:"Cambodia",KI:"Kiribati",KM:"Comoros",KN:"Saint Kitts and Nevis",KP:"North Korea",KR:"South Korea",KW:"Kuwait",KY:"Cayman Islands",KZ:"Kazakhstan",LA:"Laos",LB:"Lebanon",LC:"Saint Lucia",LI:"Liechtenstein",LK:"Sri Lanka",LR:"Liberia",LS:"Lesotho",LT:"Lithuania",LU:"Luxembourg",LV:"Latvia",LY:"Libya",MA:"Morocco",MC:"Monaco",MD:"Moldova",ME:"Montenegro",MF:"Saint Martin",MG:"Madagascar",MH:"Marshall Islands",MI:"Midway Islands",MK:"Macedonia",ML:"Mali",MM:"Myanmar [Burma]",MN:"Mongolia",MO:"Macau SAR China",MP:"Northern Mariana Islands",MQ:"Martinique",MR:"Mauritania",MS:"Montserrat",MT:"Malta",MU:"Mauritius",MV:"Maldives",MW:"Malawi",MX:"Mexico",MY:"Malaysia",MZ:"Mozambique",NA:"Namibia",NC:"New Caledonia",NE:"Niger",NF:"Norfolk Island",NG:"Nigeria",NI:"Nicaragua",NL:"Netherlands",NO:"Norway",NP:"Nepal",NQ:"Dronning Maud Land",NR:"Nauru",NT:"Neutral Zone",NU:"Niue",NZ:"New Zealand",OM:"Oman",PA:"Panama",PC:"Pacific Islands Trust Territory",PE:"Peru",PF:"French Polynesia",PG:"Papua New Guinea",PH:"Philippines",PK:"Pakistan",PL:"Poland",PM:"Saint Pierre and Miquelon",PN:"Pitcairn Islands",PR:"Puerto Rico",PS:"Palestinian Territories",PT:"Portugal",PU:"U.S. Miscellaneous Pacific Islands",PW:"Palau",PY:"Paraguay",PZ:"Panama Canal Zone",QA:"Qatar",RE:"Réunion",RO:"Romania",RS:"Serbia",RU:"Russia",RW:"Rwanda",SA:"Saudi Arabia",SB:"Solomon Islands",SC:"Seychelles",SD:"Sudan",SE:"Sweden",SG:"Singapore",SH:"Saint Helena",SI:"Slovenia",SJ:"Svalbard and Jan Mayen",SK:"Slovakia",SL:"Sierra Leone",SM:"San Marino",SN:"Senegal",SO:"Somalia",SR:"Suriname",ST:"São Tomé and Príncipe",SU:"Union of Soviet Socialist Republics",SV:"El Salvador",SY:"Syria",SZ:"Swaziland",TC:"Turks and Caicos Islands",TD:"Chad",TF:"French Southern Territories",TG:"Togo",TH:"Thailand",TJ:"Tajikistan",TK:"Tokelau",TL:"Timor-Leste",TM:"Turkmenistan",TN:"Tunisia",TO:"Tonga",TR:"Turkey",TT:"Trinidad and Tobago",TV:"Tuvalu",TW:"Taiwan",TZ:"Tanzania",UA:"Ukraine",UG:"Uganda",UM:"U.S. Minor Outlying Islands",US:"United States",UY:"Uruguay",UZ:"Uzbekistan",VA:"Vatican City",VC:"Saint Vincent and the Grenadines",VD:"North Vietnam",VE:"Venezuela",VG:"British Virgin Islands",VI:"U.S. Virgin Islands",VN:"Vietnam",VU:"Vanuatu",WF:"Wallis and Futuna",WK:"Wake Island",WS:"Samoa",YD:"People's Democratic Republic of Yemen",YE:"Yemen",YT:"Mayotte",ZA:"South Africa",ZM:"Zambia",ZW:"Zimbabwe",ZZ:"Unknown or Invalid Region" };
 
@@ -449,10 +416,10 @@
         });
       });
     </script>
-    <!-- /jQuery autocomplete -->
+	<!-- /jQuery autocomplete -->
 
-    <!-- Starrr -->
-    <script>
+	<!-- Starrr -->
+	<script>
       $(document).ready(function() {
         $(".stars").starrr();
 
@@ -469,6 +436,8 @@
         });
       });
     </script>
-    <!-- /Starrr -->
-  </body>
+	<!-- /Starrr -->
+
+
+</h:body>
 </html>

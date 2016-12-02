@@ -44,6 +44,9 @@ public class ogrenci {
 	 private String isim;
 	 private String soyisim;
 	 private String tc;
+	 private String email;
+	 private String sifre;
+	 
 	    
 	    
 	    
@@ -114,6 +117,26 @@ public class ogrenci {
 		        }   
 		        
 		    }
+
+
+		public String getEmail() {
+			return email;
+		}
+
+
+		public void setEmail(String email) {
+			this.email = email;
+		}
+
+
+		public String getSifre() {
+			return sifre;
+		}
+
+
+		public void setSifre(String sifre) {
+			this.sifre = sifre;
+		}
 		 
 		 
 		 

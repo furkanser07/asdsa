@@ -46,11 +46,10 @@ public class ders {
     }   
     }
     
-    
+    private ArrayList<ders> list1= new ArrayList<ders>();
     private ArrayList<ders> list= new ArrayList<ders>();
     private ResultSet derslergeri;
     private ResultSet dersler;
-    //@ManagedProperty(value="#{param.ders_no}")
     private String ders_no;
     private String ogret_no;
     private String ders_isim;
@@ -58,6 +57,7 @@ public class ders {
     CachedRowSet rowSet=null;
     DataSource dataSource;
     private boolean guncellenebilirlik;
+    
 
     /**
      *
@@ -191,6 +191,14 @@ public class ders {
 
 
 	Connection connection = null;
+	public ArrayList<ders> getList1() {
+		return list1;
+	}
+
+
+	public void setList1(ArrayList<ders> list1) {
+		this.list1 = list1;
+	}
 	
 /*	
     public  List<ders> derslerGetir() throws SQLException

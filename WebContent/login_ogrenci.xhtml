@@ -1,10 +1,13 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en"
-       xmlns="http://www.w3.org/1999/xhtml"
-       xmlns:h="http://xmlns.jcp.org/jsf/html"
-       xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
-       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+        xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      >
+       
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <!-- Meta, title, CSS, favicons, etc. -->
@@ -38,23 +41,23 @@
         <div class="animate form login_form">
           <section class="login_content">
             <h:form>
-                <h1>Admin Girişi</h1>
+              <h1 style="margin-left: 20px; margin-right: 20px;">Öğrenci Girişi</h1>
               <div>
-                <h:inputText a:placeholder="Email adresinizi girin.."  id="email" value="#{admin.email}"  class="form-control"  required="" />
+              <h:inputText a:placeholder="Email adresinizi girin.."  id="email" value="#{loginBean.ogr1.email}"  class="form-control"  required="" />
                
               </div>
               <div>
-                <h:inputSecret a:placeholder="Şifrenizi girin.."  id="sifre"   value="#{admin.sifre}" class="form-control"  required="" />
+                <h:inputSecret a:placeholder="Şifrenizi girin.."  id="sifre"   value="#{loginBean.ogr1.sifre}" class="form-control"  required="" />
               </div> 
               <div>
                   <h:commandButton  class="btn btn-success submit"  
-			value="Giriş Yap"   action="#{admin.girisYap}" >     </h:commandButton>
+			value="Giriş Yap"   action="#{loginBean.girisYapOgr()}" >     </h:commandButton>
                   
                   
-                <!--   <h:commandLink class="reset_pass"> Şifremi Unuttum?</h:commandLink> --> 
+                 <!--  <h:commandLink class="reset_pass"> Şifremi Unuttum?</h:commandLink> -->
+                  <h:outputLink value="login_admin.xhtml">Admin Girişi</h:outputLink>
                   <h:outputLink value="login.xhtml">Öğretmen Girişi</h:outputLink>
-                  <h:outputLink value="login_ogrenci.xhtml">Öğrenci Girişi</h:outputLink>
-                    
+                  
               </div>
 
               <div class="clearfix"></div>

@@ -204,6 +204,18 @@
 								<h:outputText value="#{var2.soyisim}" rendered="#{not var2.guncellenebilirlik}"/>
 						
 			</h:column>
+			<h:column>
+												<f:facet name="header">Email</f:facet>
+												<h:inputText value="#{var2.email}" rendered="#{var2.guncellenebilirlik}" style="width: 100px;"/>
+								<h:outputText value="#{var2.email}" rendered="#{not var2.guncellenebilirlik}"/>
+						
+			</h:column>
+			<h:column>
+												<f:facet name="header">Soyisim</f:facet>
+												<h:inputText value="#{var2.sifre}" rendered="#{var2.guncellenebilirlik}" style="width: 100px;"/>
+								<h:outputText value="#{var2.sifre}" rendered="#{not var2.guncellenebilirlik}"/>
+						
+			</h:column>
 			
 											    
                           <h:column>

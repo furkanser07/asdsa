@@ -18,14 +18,21 @@ import javax.faces.context.FacesContext;
 public class DersBean {
 	
 	private int sil_id;
+	private String o_id;
 	private ders ders;
 	private ArrayList<ders> list= new ArrayList<ders>();
+	private ArrayList<ders> list1= new ArrayList<ders>();
+	private ArrayList<ogrenci> ogrlist= new ArrayList<ogrenci>();
 	private HtmlForm form = new HtmlForm();
+	private ogrenci ogrenci;
+	
 	
 	@PostConstruct
 	private void init() {
 		initDersList();
+		ogrtDersGetir();
 		ders = new ders();
+		ogrenci = new ogrenci();
 	}
 	
 	public DersBean() 
@@ -39,6 +46,84 @@ public class DersBean {
     } 
     }
 	
+	public String ogrYoklamaGetir()
+	{
+		ogrenci ogr = new ogrenci();
+		
+	
+	try
+	{
+		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/yoklama","root","root");
+		PreparedStatement ps = connection.prepareStatement( "SELECT * FROM ders_ogrenci INNER JOIN ogrenci"
+				+ " ON ogrenci.ogren_no=ders_ogrenci.ogren_no where ders_ogrenci.ders_no=?");
+		
+		ps.setString(1,ders.getDers_no());
+		
+		
+		ResultSet rs = ps.executeQuery();
+		
+		while (rs.next())
+		 {
+		 ogr = new ogrenci();
+		 ogr.setOgren_no(rs.getString("ogren_no"));
+		 ogr.setIsim(rs.getString("isim"));
+		 ogr.setSoyisim(rs.getString("soyisim"));
+		 ogrlist.add(ogr);
+		 }
+		
+		return null;
+		
+	}
+	catch(Exception e)
+    {
+		return null;
+    }
+    
+ finally
+    {
+	 
+    } 
+	}
+	
+	
+	public void ogrtDersGetir()
+	{
+		ders ders2;
+	//o_id = ders.ogrt.getOgret_no();
+	
+	try
+	{
+		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/yoklama","root","root");
+		PreparedStatement ps = connection.prepareStatement( "SELECT * FROM DERS where ogret_no=?");
+		
+		ps.setInt(1, 1004);
+		
+		
+		ResultSet rs    =    ps.executeQuery();
+		
+		while (rs.next())
+		 {
+		 ders2 = new ders();
+		 ders2.setDers_no(rs.getString("ders_no"));
+		 ders2.setDers_isim(rs.getString("ders_isim"));
+		 ders2.setKredi(rs.getString("kredi"));
+		 ders2.setOgret_no(rs.getString("ogret_no"));
+		 list1.add(ders2);
+		 }
+		
+		
+		
+	}
+	catch(Exception e)
+    {
+       
+    }
+    
+ finally
+    {
+         
+    } 
+	}
 	
 	public void initDersList()
 	{
@@ -230,6 +315,40 @@ public class DersBean {
 	public void setSil_id(int sil_id) {
 		this.sil_id = sil_id;
 	}
+
+	public String getO_id() {
+		return o_id;
+	}
+
+	public void setO_id(String o_id) {
+		this.o_id = o_id;
+	}
+
+	public ArrayList<ders> getList1() {
+		return list1;
+	}
+
+	public void setList1(ArrayList<ders> list1) {
+		this.list1 = list1;
+	}
+
+	public ArrayList<ogrenci> getOgrlist() {
+		return ogrlist;
+	}
+
+	public void setOgrlist(ArrayList<ogrenci> ogrlist) {
+		this.ogrlist = ogrlist;
+	}
+
+	public ogrenci getOgrenci() {
+		return ogrenci;
+	}
+
+	public void setOgrenci(ogrenci ogrenci) {
+		this.ogrenci = ogrenci;
+	}
+
+	
 	
 	
 	
