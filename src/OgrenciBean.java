@@ -126,19 +126,20 @@ public class OgrenciBean {
 					+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 			
 			addEntry.setString(1, ders.getDers_no());
-			addEntry.setInt(2, 20003);
-			addEntry.setBoolean(3, false);
-			addEntry.setBoolean(4, false);
-			addEntry.setBoolean(5, false);
-			addEntry.setBoolean(6, false);
-			addEntry.setBoolean(7, false);
-			addEntry.setBoolean(8, false);
-			addEntry.setBoolean(9, false);
-			addEntry.setBoolean(10, false);
-			addEntry.setBoolean(11, false);
-			addEntry.setBoolean(12, false);
-			addEntry.setBoolean(13, false);
-			addEntry.setBoolean(14, false);
+			addEntry.setInt(2, 20002);
+			addEntry.setInt(3, 0);
+			addEntry.setInt(4, 1);
+			addEntry.setInt(5, 1);
+			addEntry.setInt(6, 1);
+			addEntry.setInt(7, 0);
+			addEntry.setInt(8, 0);
+			addEntry.setInt(9, 0);
+			addEntry.setInt(10, 0);
+			addEntry.setInt(11, 0);
+			addEntry.setInt(12, 0);
+			addEntry.setInt(13, 0);
+			addEntry.setInt(14, 0);
+			
 			
 			
 			

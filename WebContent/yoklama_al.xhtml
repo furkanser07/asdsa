@@ -149,77 +149,29 @@
 <h:form   class="form-horizontal form-label-left">
 
 <div class="row">	
-    <h:selectOneMenu value="#{dersBean.ders.ders_no}" class="form-control">
-        <f:selectItems value="#{dersBean.list1}" var="ders2" itemValue="#{ders2.ders_no}" itemLabel="#{ders2.ders_isim}" />
+    <h:selectOneMenu style="width: 120px;" value="#{dersBean.hafta_adi}" class="form-control">
+        <f:selectItem   itemValue="hafta1" itemLabel="Hafta1" />
+        <f:selectItem   itemValue="hafta2" itemLabel="Hafta2" />
+        <f:selectItem   itemValue="hafta3" itemLabel="Hafta3" />
+        <f:selectItem   itemValue="hafta4}" itemLabel="Hafta4" />
+        <f:selectItem   itemValue="hafta5}" itemLabel="Hafta5" />
+        <f:selectItem   itemValue="hafta6}" itemLabel="Hafta6" />
+        <f:selectItem   itemValue="hafta7}" itemLabel="Hafta7" />
+        <f:selectItem   itemValue="hafta8}" itemLabel="Hafta8" />
+        <f:selectItem   itemValue="hafta9}" itemLabel="Hafta9" />
+        <f:selectItem   itemValue="hafta10}" itemLabel="Hafta10" />
+        <f:selectItem   itemValue="hafta11}" itemLabel="Hafta11" />
+        <f:selectItem   itemValue="hafta12}" itemLabel="Hafta12" />
+        
     </h:selectOneMenu> 
                         
      
+     <h:inputText value="#{dersBean.ogrenci.kart_no}"></h:inputText>
+     
                      <div class="ln_solid"></div>
-	 <h:commandButton action="#{dersBean.ogrYoklamaGetir()}" style="height:40px; width:70px; margin-left:20px; margin-top:20px;" value="Ekle"  class="btn btn-success"></h:commandButton>
+	 <h:commandButton action="#{dersBean.ogrYoklamaAl()}" style="height:40px; width:70px; margin-left:20px; margin-top:20px;" value="Ekle"  class="btn btn-success"></h:commandButton>
 	 </div>
 </h:form>
-      
-   <h:form   class="form-horizontal form-label-left">
-   
-   
-   <h:inputText a:placeholder="Öğrencinin ismini giriniz." value="#{dersBean.text}"/>
-  <h:commandButton action="#{dersBean.ogr1YoklamaGetir()}" style="height:40px; width:70px; margin-left:20px; margin-top:20px;" value="Ara"  class="btn btn-success"></h:commandButton>   
-      </h:form>
-      
-      
-      
-      <h:form id="formid">
- 
-										
-										
-										<h:dataTable value="#{dersBean.ogrlist}"
-											var="var" border="0"
-											styleClass="table table-striped table-hover ">
-
-
-
-											<h:column>
-												<f:facet name="header">Öğrenci Numarası</f:facet>
-				#{var.ogren_no}
-			</h:column>
-
-											<h:column>
-												<f:facet name="header">Öğrenci Adı </f:facet>
-				#{var.isim}
-			</h:column>
-
-											<h:column>
-												<f:facet name="header">Öğrenci Soyadı</f:facet>
-				#{var.soyisim}
-			</h:column>
-			
-			<h:column>
-												<f:facet name="header">Hafta1</f:facet>
-				#{var.hafta1}
-			</h:column>
-			
-			<h:column>
-												<f:facet name="header">Hafta2</f:facet>
-				#{var.hafta2}
-			</h:column>
-			
-			<h:column>
-												<f:facet name="header">Hafta3</f:facet>
-				#{var.hafta3}
-			</h:column>
-			
-			<h:column>
-												<f:facet name="header">Hafta4</f:facet>
-				#{var.hafta4}
-			</h:column>
-
-			<h:column>
-												<f:facet name="header">Toplam Geldiği Gün Sayısı</f:facet>
-				#{var.toplam}
-			</h:column>
-
-										</h:dataTable>
-									</h:form>					
       
                   </div>
                 </div>

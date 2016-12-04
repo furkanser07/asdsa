@@ -17,6 +17,8 @@ import javax.faces.context.FacesContext;
 @ViewScoped
 public class DersBean {
 	
+	private String text;
+	private String hafta_adi;
 	private int sil_id;
 	private String o_id;
 	private ders ders;
@@ -68,6 +70,11 @@ public class DersBean {
 		 ogr.setOgren_no(rs.getString("ogren_no"));
 		 ogr.setIsim(rs.getString("isim"));
 		 ogr.setSoyisim(rs.getString("soyisim"));
+		 ogr.setHafta1(rs.getInt("hafta1"));
+		 ogr.setHafta2(rs.getInt("hafta2"));
+		 ogr.setHafta3(rs.getInt("hafta3"));
+		 ogr.setHafta4(rs.getInt("hafta4"));
+		 ogr.setToplam(rs.getInt("hafta1")+rs.getInt("hafta2")+rs.getInt("hafta3")+ rs.getInt("hafta4"));
 		 ogrlist.add(ogr);
 		 }
 		
@@ -85,6 +92,210 @@ public class DersBean {
     } 
 	}
 	
+	
+	public String ogrYoklamaAl()
+	{
+		
+		
+	
+	try
+	{
+		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/yoklama","root","root");
+		
+		if(hafta_adi.equals("hafta1") )
+		{
+		
+			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci SET ders_ogrenci.hafta1 = 1"
+				+ "FROM ders_ogrenci INNER JOIN ogrenci ON ders_ogrenci.ogren_no=ogrenci.ogren_no"
+				+ " WHERE ogrenci.kart_no=? ");
+		
+		ps.setString(1,ogrenci.getKart_no());
+		
+		}
+		
+		if(hafta_adi.equals("hafta2") )
+		{
+		
+			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci SET ders_ogrenci.hafta2 = 1"
+				+ "FROM ders_ogrenci INNER JOIN ogrenci ON ders_ogrenci.ogren_no=ogrenci.ogren_no"
+				+ " WHERE ogrenci.kart_no=? ");
+		
+		ps.setString(1,ogrenci.getKart_no());
+		
+		}
+		
+		if(hafta_adi.equals("hafta3") )
+		{
+		
+			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci SET ders_ogrenci.hafta3 = 1"
+				+ "FROM ders_ogrenci INNER JOIN ogrenci ON ders_ogrenci.ogren_no=ogrenci.ogren_no"
+				+ " WHERE ders_ogrenci.ogren_no=20001 and ders_ogrenci.ders_no=10000 ");
+		
+		//ps.setString(1,ogrenci.getKart_no());
+		
+		ps.executeUpdate();
+		
+		
+		}
+		
+		if(hafta_adi.equals("hafta4") )
+		{
+		
+			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci SET ders_ogrenci.hafta4 = 1"
+				+ "FROM ders_ogrenci INNER JOIN ogrenci ON ders_ogrenci.ogren_no=ogrenci.ogren_no"
+				+ " WHERE ogrenci.kart_no=? ");
+		
+		ps.setString(1,ogrenci.getKart_no());
+		
+		}
+		
+		if(hafta_adi.equals("hafta5") )
+		{
+		
+			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci SET ders_ogrenci.hafta5 = 1"
+				+ "FROM ders_ogrenci INNER JOIN ogrenci ON ders_ogrenci.ogren_no=ogrenci.ogren_no"
+				+ " WHERE ogrenci.kart_no=? ");
+		
+		ps.setString(1,ogrenci.getKart_no());
+		
+		}
+		
+		if(hafta_adi.equals("hafta6") )
+		{
+		
+			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci SET ders_ogrenci.hafta6 = 1"
+				+ "FROM ders_ogrenci INNER JOIN ogrenci ON ders_ogrenci.ogren_no=ogrenci.ogren_no"
+				+ " WHERE ogrenci.kart_no=? ");
+		
+		ps.setString(1,ogrenci.getKart_no());
+		
+		}
+		
+		if(hafta_adi.equals("hafta7") )
+		{
+		
+			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci SET ders_ogrenci.hafta7 = 1"
+				+ "FROM ders_ogrenci INNER JOIN ogrenci ON ders_ogrenci.ogren_no=ogrenci.ogren_no"
+				+ " WHERE ogrenci.kart_no=? ");
+		
+		ps.setString(1,ogrenci.getKart_no());
+		
+		}
+		
+		if(hafta_adi.equals("hafta8") )
+		{
+		
+			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci SET ders_ogrenci.hafta8 = 1"
+				+ "FROM ders_ogrenci INNER JOIN ogrenci ON ders_ogrenci.ogren_no=ogrenci.ogren_no"
+				+ " WHERE ogrenci.kart_no=? ");
+		
+		ps.setString(1,ogrenci.getKart_no());
+		
+		}
+		
+		if(hafta_adi.equals("hafta9") )
+		{
+		
+			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci SET ders_ogrenci.hafta9 = 1"
+				+ "FROM ders_ogrenci INNER JOIN ogrenci ON ders_ogrenci.ogren_no=ogrenci.ogren_no"
+				+ " WHERE ogrenci.kart_no=? ");
+		
+		ps.setString(1,ogrenci.getKart_no());
+		
+		}
+		
+		if(hafta_adi.equals("hafta10") )
+		{
+		
+			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci SET ders_ogrenci.hafta10 = 1"
+				+ "FROM ders_ogrenci INNER JOIN ogrenci ON ders_ogrenci.ogren_no=ogrenci.ogren_no"
+				+ " WHERE ogrenci.kart_no=? ");
+		
+		ps.setString(1,ogrenci.getKart_no());
+		
+		}
+		
+		if(hafta_adi.equals("hafta11") )
+		{
+		
+			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci SET ders_ogrenci.hafta11 = 1"
+				+ "FROM ders_ogrenci INNER JOIN ogrenci ON ders_ogrenci.ogren_no=ogrenci.ogren_no"
+				+ " WHERE ogrenci.kart_no=? ");
+		
+		ps.setString(1,ogrenci.getKart_no());
+		
+		}
+		
+		if(hafta_adi.equals("hafta12") )
+		{
+		
+			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci SET ders_ogrenci.hafta12 = 1"
+				+ "FROM ders_ogrenci INNER JOIN ogrenci ON ders_ogrenci.ogren_no=ogrenci.ogren_no"
+				+ " WHERE ogrenci.kart_no=? ");
+		
+		ps.setString(1,ogrenci.getKart_no());
+		
+		}
+		
+	
+		return null;
+		
+	}
+	catch(Exception e)
+    {
+		return null;
+    }
+    
+ finally
+    {
+	 
+    } 
+	}
+	
+	public String ogr1YoklamaGetir()
+	{
+		ogrenci ogr = new ogrenci();
+		
+	
+	try
+	{
+		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/yoklama","root","root");
+		PreparedStatement ps = connection.prepareStatement( "SELECT * FROM ders_ogrenci INNER JOIN ogrenci"
+				+ " ON ogrenci.ogren_no=ders_ogrenci.ogren_no where ders_ogrenci.ders_no=? and ogrenci.isim LIKE ?");
+		
+		ps.setString(1,ders.getDers_no());
+		ps.setString(2, "%"+text+"%");
+		
+		
+		ResultSet rs = ps.executeQuery();
+		
+		while (rs.next())
+		 {
+		 ogr = new ogrenci();
+		 ogr.setOgren_no(rs.getString("ogren_no"));
+		 ogr.setIsim(rs.getString("isim"));
+		 ogr.setSoyisim(rs.getString("soyisim"));
+		 ogr.setHafta1(rs.getInt("hafta1"));
+		 ogr.setHafta2(rs.getInt("hafta2"));
+		 ogr.setHafta3(rs.getInt("hafta3"));
+		 ogr.setHafta4(rs.getInt("hafta4"));
+		 ogr.setToplam(rs.getInt("hafta1")+rs.getInt("hafta2")+rs.getInt("hafta3")+ rs.getInt("hafta4"));
+		 ogrlist.add(ogr);
+		 }
+		
+		return null;
+		
+	}
+	catch(Exception e)
+    {
+		return null;
+    }
+    
+ finally
+    {
+	 
+    } 
+	}
 	
 	public void ogrtDersGetir()
 	{
@@ -346,6 +557,22 @@ public class DersBean {
 
 	public void setOgrenci(ogrenci ogrenci) {
 		this.ogrenci = ogrenci;
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	public String getHafta_adi() {
+		return hafta_adi;
+	}
+
+	public void setHafta_adi(String hafta_adi) {
+		this.hafta_adi = hafta_adi;
 	}
 
 	
