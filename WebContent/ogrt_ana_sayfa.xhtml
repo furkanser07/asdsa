@@ -2,7 +2,8 @@
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+       xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+       xmlns:f="http://xmlns.jcp.org/jsf/core">
   <head>
  
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -172,12 +173,11 @@ input {
               <div class="menu_section">
                 <h3>Menü</h3>
                 <ul class="nav side-menu">  <!-- aradaki boşluk ne anlama geliyor -->
-                  <li><a href="derssec.xhtml">  <i class="fa fa-home"></i> Ders Seç </a>
+                  <li><a href="derssec.xhtml">  <i class="fa fa-home"></i> Devamsızlık Görüntüle </a>
                   </li>
-                   <li><a href="ogr_sor.xhtml">  <i class="fa fa-edit"></i> Öğrenci Sorgula </a>
+                   <li><a href="yoklama_al.xhtml">  <i class="fa fa-edit"></i> Yoklama Al </a>
                   </li>
-                   <li><a href="dev_gor.xhtml">  <i class="fa fa-home"></i> Devamsızlık Görüntüle </a>
-                  </li>  
+                   
                  
 
 
@@ -240,20 +240,42 @@ input {
         
         
         <div class="col-md-6" >
-        <div id="myDIV" class="row" >
+       
         
   <h2 style="color:black; text-align: center; ">NOTLARIM</h2>
   Buraya notlarınızı,yapacaklarınızı veya hatırlamak istediğiniz bilgilerinizi girebilirsiniz.
-  <h:inputText a:placeholder="Notu giriniz.." style= "width:400px; margin-top:20px; "  id="myInput" > </h:inputText>
- <h:commandButton style=" height:40px; width:70px; margin-left:20px; margin-top:20px;" onclick="newElement()" class="btn btn-primary"  value="Ekle" > </h:commandButton>
+ 
+ 
+ 
+ <h:form>
+ <h:inputText a:placeholder="Notu giriniz.." value="#{notBean.not2.not1}" style= "width:400px; margin-top:20px; " > </h:inputText>
+ <h:commandButton action="#{notBean.notEkle()}" style=" height:40px; width:70px; margin-left:20px; margin-top:20px;"  class="btn btn-primary"  value="Ekle" > </h:commandButton>
+</h:form>
+	
+	<h:form id="formid">
+<h:dataTable value="#{notBean.not_list}"
+var="var" border="0"
+styleClass="table table-striped table-hover ">
+<h:column>
+				#{var.not1}
+</h:column>
 
-</div>
+
+											<h:column>
+												
+				<h:commandLink id="sil1" value="Sil"  action="#{notBean.notSil()}">
+													<f:param name="not_no" value="#{var.not_no}" />
+												
+												</h:commandLink>
+											</h:column>
+
+										</h:dataTable>
+									</h:form>
+
 <br> </br>
 	
  
-<ul id="myUL">
- 
-</ul>
+
         </div>
         </div>
          

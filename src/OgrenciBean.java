@@ -87,7 +87,7 @@ public class OgrenciBean {
 					.prepareStatement("SELECT * FROM ders_ogrenci INNER JOIN ders "
 							+ "ON ders.ders_no=ders_ogrenci.ders_no where ders_ogrenci.ogren_no=?");
 			
-			ps.setInt(1, 20003 );
+			ps.setInt(1, 20001 );// Buraya giriþ yapan öðrencinin numarasý gelcek.
 
 			ResultSet rs = ps.executeQuery();
 
@@ -122,11 +122,11 @@ public class OgrenciBean {
 					"jdbc:mysql://localhost:3306/yoklama", "root", "root");
 			
 			PreparedStatement addEntry = connection.prepareStatement("INSERT INTO ders_ogrenci"
-					+ " (ders_no,ogren_no,hafta1,hafta2,hafta3,hafta4,hafta5,hafta6,hafta7,hafta8,hafta9,hafta10,hafta11,hafta12) "
-					+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+					+ " (ders_no,ogren_no,hafta1,hafta2,hafta3,hafta4,hafta5,hafta6,hafta7,hafta8,hafta9,hafta10,hafta11,hafta12,kart_no) "
+					+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 			
 			addEntry.setString(1, ders.getDers_no());
-			addEntry.setInt(2, 20002);
+			addEntry.setInt(2, 20001);// Buraya öðrenci numarasý gelcek.
 			addEntry.setInt(3, 0);
 			addEntry.setInt(4, 1);
 			addEntry.setInt(5, 1);
@@ -139,6 +139,7 @@ public class OgrenciBean {
 			addEntry.setInt(12, 0);
 			addEntry.setInt(13, 0);
 			addEntry.setInt(14, 0);
+			addEntry.setString(15, "10");
 			
 			
 			

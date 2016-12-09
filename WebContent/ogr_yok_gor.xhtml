@@ -53,7 +53,7 @@
               
               <div class="profile_info" >
                 <span>Hoşgeldiniz,</span>
-                <h2>#{loginBean.ogrt1.isim} #{loginBean.ogrt1.soyisim}</h2>
+                <h2>#{loginBean.ogr1.isim} #{loginBean.ogr1.soyisim}</h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -65,10 +65,13 @@
               <div class="menu_section">
                 <h3>Menü</h3>
                 <ul class="nav side-menu">  <!-- aradaki boşluk ne anlama geliyor -->
-                  <li><a href="derssec.xhtml">  <i class="fa fa-home"></i> Devamsızlık Görüntüle </a>
-                  </li>
-                   <li><a href="yoklama_al.xhtml">  <i class="fa fa-edit"></i> Yoklama Al </a>
-                  </li>
+                  <li><a href="ogr_ders_sec.xhtml"> <i class="fa fa-home"></i>
+										Ders Ekle ve Sil
+								</a></li>
+								
+								<li><a href="ogr_yok_gor.xhtml"> <i class="fa fa-home"></i>
+										Yoklama Bilgisi Görüntüle
+								</a></li>
 
 
 
@@ -147,21 +150,16 @@
 
 <div class="row">	
     <h:selectOneMenu value="#{dersBean.ders.ders_no}" class="form-control">
-        <f:selectItems value="#{dersBean.list1}" var="ders2" itemValue="#{ders2.ders_no}" itemLabel="#{ders2.ders_isim}" />
+        <f:selectItems value="#{dersBean.list2}" var="ders3" itemValue="#{ders3.ders_no}" itemLabel="#{ders3.ders_isim}" />
     </h:selectOneMenu> 
                         
      
                      <div class="ln_solid"></div>
-	 <h:commandButton action="#{dersBean.ogrYoklamaGetir()}" style="height:40px; width:70px; margin-left:20px; margin-top:20px;" value="Ekle"  class="btn btn-success"></h:commandButton>
+	 <h:commandButton action="#{dersBean.tekogrYoklamaGetir()}" style="height:40px; width:90px; margin-left:20px; margin-top:20px;" value="Görüntüle"  class="btn btn-success"></h:commandButton>
 	 </div>
 </h:form>
       
-   <h:form   class="form-horizontal form-label-left">
-   
-   
-   <h:inputText a:placeholder="Öğrencinin ismini giriniz." value="#{dersBean.text}"/>
-  <h:commandButton action="#{dersBean.ogr1YoklamaGetir()}" style="height:40px; width:70px; margin-left:20px; margin-top:20px;" value="Ara"  class="btn btn-success"></h:commandButton>   
-      </h:form>
+  
       
       
       
@@ -169,7 +167,7 @@
  
 										
 										
-										<h:dataTable value="#{dersBean.ogrlist}"
+										<h:dataTable value="#{dersBean.ogrlist1}"
 											var="var" border="0"
 											styleClass="table table-striped table-hover ">
 

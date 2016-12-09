@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@ManagedBean
+@ManagedBean (name="loginBean")
 @SessionScoped
 
 public class LoginBean  {
