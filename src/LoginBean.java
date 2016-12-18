@@ -29,28 +29,21 @@ public class LoginBean  {
 	private ogrenci ogr1 = new ogrenci();
 	
 	public boolean girisYap1(String username, String password) throws SQLException 
-	{
-		
-	    try
+	{   
+		try
 	    {
 	        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/yoklama","root","root");
-	       
-	        
+	          
 	        PreparedStatement ps = connection.prepareStatement( "Select * from ogretmen where"
 	                + " email = ? and sifre = ?" );
 
 	        ps.setString( 1, ogrt1.getEmail());
 	        ps.setString( 2, ogrt1.getSifre());
-	        
-	        
-	         
+	             
 	        ResultSet rs    =    ps.executeQuery();
 	      
-	       
-	    
-	    while (rs.next()) 
+	      while (rs.next()) 
 	    {
-	    	
 	    	ogrt1.setIsim(rs.getString("isim"));
 	        ogrt1.setSoyisim(rs.getString("soyisim"));
 	        ogrt1.setTc(rs.getString("tc"));

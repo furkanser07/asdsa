@@ -129,18 +129,17 @@ public class ders {
         this.dataSource = dataSource;
     }
 
-    public String getDers_no() {
-        return ders_no;
-    }
+   
 
-    public void setDers_no(String ders_no) {
-        this.ders_no = ders_no;
-    }
+   
 
    
 
    
-     public boolean isGuncellenebilirlik() {
+    
+
+
+	public boolean isGuncellenebilirlik() {
 		return guncellenebilirlik;
 	}
 
@@ -199,74 +198,18 @@ public class ders {
 	public void setList1(ArrayList<ders> list1) {
 		this.list1 = list1;
 	}
+
+
+	public String getDers_no() {
+		return ders_no;
+	}
+
+
+	public void setDers_no(String ders_no) {
+		this.ders_no = ders_no;
+	}
 	
-/*	
-    public  List<ders> derslerGetir() throws SQLException
-    {
-    	
-    try{
-    	Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/yoklama","root","root");
-        ArrayList<ders> list1= new ArrayList<ders>();
-        
-        String numara= ogrt.getOgret_no();
-    
-        PreparedStatement ps = connection.prepareStatement( "SELECT * FROM DERS where ogret_no = ?" );
-        ps.setString(1, numara);
-        
-        rowSet = new com.sun.rowset.CachedRowSetImpl();
-        rowSet.populate( ps.executeQuery() );
-      
-     try 
-    {    
-       while (rowSet.next())
-      {
-             ders ders1 = new ders();
-             ders1.setDers_isim(rowSet.getString("ders_isim"));
-             list1.add(ders1);   
-      }  
-    }
- 
-     catch(Exception e)
-    {
-        
-    }
-     
-     finally{}
-     return list1;
-    }
-    
-    finally{}
-    
-    }
-    
-    
-   
-      public ResultSet dersBul() throws SQLException
- {
-     Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bitirme","root","root");
 
-     if ( dataSource == null )
-     throw new SQLException( "Unable to obtain DataSource" );
-
-     if ( connection == null )
-     throw new SQLException( "Unable to connect to DataSource" );
-
- try
- {  
-     PreparedStatement ps =
-     connection.prepareStatement( "select ders_isim FROM ders" );
-     rowSet = new com.sun.rowset.CachedRowSetImpl();
-     rowSet.populate( ps.executeQuery() );
-     dersler=rowSet;
-     return dersler;
- } 
- finally
- {
- connection.close(); 
- } 
- } 
-
-  */  
       
     
 }

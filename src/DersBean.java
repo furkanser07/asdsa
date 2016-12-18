@@ -58,7 +58,7 @@ public class DersBean {
 		
 		//Bu kod çalýþtýðýnda tekrar getirmek isteyince eskisiyle beraber getiriyor.
 		ogrenci ogr = new ogrenci();
-		
+		ogrlist.clear();
 	try
 	{
 		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/yoklama","root","root");
@@ -80,7 +80,19 @@ public class DersBean {
 		 ogr.setHafta2(rs.getInt("hafta2"));
 		 ogr.setHafta3(rs.getInt("hafta3"));
 		 ogr.setHafta4(rs.getInt("hafta4"));
-		 ogr.setToplam(rs.getInt("hafta1")+rs.getInt("hafta2")+rs.getInt("hafta3")+ rs.getInt("hafta4"));
+		 ogr.setHafta5(rs.getInt("hafta5"));
+		 ogr.setHafta6(rs.getInt("hafta6"));
+		 ogr.setHafta7(rs.getInt("hafta7"));
+		 ogr.setHafta8(rs.getInt("hafta8"));
+		 ogr.setHafta9(rs.getInt("hafta9"));
+		 ogr.setHafta10(rs.getInt("hafta10"));
+		 ogr.setHafta11(rs.getInt("hafta11"));
+		 ogr.setHafta12(rs.getInt("hafta12"));
+	
+		 ogr.setToplam(rs.getInt("hafta1")+rs.getInt("hafta2")+rs.getInt("hafta3")+ rs.getInt("hafta4")+rs.getInt("hafta5")
+				 +rs.getInt("hafta6")+rs.getInt("hafta7")+rs.getInt("hafta8")+rs.getInt("hafta9")+rs.getInt("hafta10")
+				 +rs.getInt("hafta11")+rs.getInt("hafta12"));
+		
 		 ogrlist.add(ogr);
 		 }
 		
@@ -100,9 +112,11 @@ public class DersBean {
 	
 	public String tekogrYoklamaGetir()
 	{
-		
+		 ogrlist1.clear();
 		//Bu kod çalýþtýðýnda tekrar getirmek isteyince eskisiyle beraber getiriyor.
 		ogrenci ogr3 = new ogrenci();
+		
+		ogr3=(ogrenci) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("loginOgr");
 		
 	try
 	{
@@ -111,7 +125,7 @@ public class DersBean {
 				+ " ON ogrenci.ogren_no=ders_ogrenci.ogren_no where ders_ogrenci.ders_no=? and ders_ogrenci.ogren_no=?");
 		
 		ps.setString(1,ders.getDers_no());
-		ps.setInt(2,20001); // Buraya giriþ yapan öðrencinin numarasý gelecek.
+		ps.setString(2,ogr3.getOgren_no()); // Buraya giriþ yapan öðrencinin numarasý gelecek.
 		
 		
 		
@@ -127,7 +141,20 @@ public class DersBean {
 		 ogr3.setHafta2(rs.getInt("hafta2"));
 		 ogr3.setHafta3(rs.getInt("hafta3"));
 		 ogr3.setHafta4(rs.getInt("hafta4"));
-		 ogr3.setToplam(rs.getInt("hafta1")+rs.getInt("hafta2")+rs.getInt("hafta3")+ rs.getInt("hafta4"));
+		 ogr3.setHafta5(rs.getInt("hafta5"));
+		 ogr3.setHafta6(rs.getInt("hafta6"));
+		 ogr3.setHafta7(rs.getInt("hafta7"));
+		 ogr3.setHafta8(rs.getInt("hafta8"));
+		 ogr3.setHafta9(rs.getInt("hafta9"));
+		 ogr3.setHafta10(rs.getInt("hafta10"));
+		 ogr3.setHafta11(rs.getInt("hafta11"));
+		 ogr3.setHafta12(rs.getInt("hafta12"));
+		 ogr3.setToplam(rs.getInt("hafta1")+rs.getInt("hafta2")+rs.getInt("hafta3")+ rs.getInt("hafta4")+
+				 rs.getInt("hafta5")
+				 +rs.getInt("hafta6")+rs.getInt("hafta7")+rs.getInt("hafta8")+rs.getInt("hafta9")+rs.getInt("hafta10")
+				 +rs.getInt("hafta11")+rs.getInt("hafta12")
+				 );
+	
 		 ogrlist1.add(ogr3);
 		 }
 		
@@ -149,6 +176,7 @@ public class DersBean {
 	public String ogrYoklamaAl()
 	{
 		
+		//Bu sql sorgusu hata veriyor.
 		
 	
 	try
@@ -158,21 +186,19 @@ public class DersBean {
 		if(hafta_adi.equals("hafta1") )
 		{
 		
-			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci SET ders_ogrenci.hafta1 = 1"
-				+ "FROM ders_ogrenci INNER JOIN ogrenci ON ders_ogrenci.kart_no = ogrenci.kart_no"
-				+ " WHERE  ogrenci.kart_no=? and ders_ogrenci.ders_no=?  ");
+			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci,ogrenci,ders SET ders_ogrenci.hafta1 = 1 "
+					+ "where ders_ogrenci.kart_no = ogrenci.kart_no and ogrenci.kart_no=? and ders_ogrenci.ders_no=? ");
 		
 		ps.setString(1,ogrenci.getKart_no());
-		ps.setString(2, ders.getDers_no());
+		ps.setString(2,ders.getDers_no());
 		ps.executeUpdate();
 		}
 		
 		if(hafta_adi.equals("hafta2") )
 		{
 		
-			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci SET ders_ogrenci.hafta2 = 1"
-				+ "FROM ders_ogrenci INNER JOIN ogrenci ON ders_ogrenci.kart_no = ogrenci.kart_no"
-				+ " WHERE ogrenci.kart_no=? and ders_ogrenci.ders_no=?");
+			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci,ogrenci,ders SET ders_ogrenci.hafta1 = 1 "
+					+ "where ders_ogrenci.kart_no = ogrenci.kart_no and ogrenci.kart_no=? and ders_ogrenci.ders_no=?");
 		
 			ps.setString(1,ogrenci.getKart_no());
 			ps.setString(2, ders.getDers_no());
@@ -182,9 +208,8 @@ public class DersBean {
 		if(hafta_adi.equals("hafta3") )
 		{
 		
-			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci SET ders_ogrenci.hafta3 = 0"
-				+ "FROM ders_ogrenci INNER JOIN ogrenci ON ders_ogrenci.kart_no = ogrenci.kart_no"
-				+ " WHERE ders_ogrenci.kart_no=? and ders_ogrenci.ders_no=? ");
+			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci,ogrenci,ders SET ders_ogrenci.hafta1 = 1 "
+					+ "where ders_ogrenci.kart_no = ogrenci.kart_no and ogrenci.kart_no=? and ders_ogrenci.ders_no=?");
 		
 		ps.setString(1,ogrenci.getKart_no());
 		ps.setString(2, ders.getDers_no());
@@ -196,9 +221,8 @@ public class DersBean {
 		if(hafta_adi.equals("hafta4") )
 		{
 		
-			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci SET ders_ogrenci.hafta4 = 1"
-				+ "FROM ders_ogrenci INNER JOIN ogrenci ON ders_ogrenci.kart_no = ogrenci.kart_no"
-				+ " WHERE ogrenci.kart_no=? and ders_ogrenci.ders_no=?");
+			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci,ogrenci,ders SET ders_ogrenci.hafta1 = 1 "
+					+ "where ders_ogrenci.kart_no = ogrenci.kart_no and ogrenci.kart_no=? and ders_ogrenci.ders_no=?");
 		
 		ps.setString(1,ogrenci.getKart_no());
 		ps.setString(2, ders.getDers_no());
@@ -208,9 +232,8 @@ public class DersBean {
 		if(hafta_adi.equals("hafta5") )
 		{
 		
-			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci SET ders_ogrenci.hafta5 = 1"
-				+ "FROM ders_ogrenci INNER JOIN ogrenci ON ders_ogrenci.kart_no = ogrenci.kart_no"
-				+ " WHERE ogrenci.kart_no=? and ders_ogrenci.ders_no=?");
+			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci,ogrenci,ders SET ders_ogrenci.hafta1 = 1 "
+					+ "where ders_ogrenci.kart_no = ogrenci.kart_no and ogrenci.kart_no=? and ders_ogrenci.ders_no=?");
 		
 		ps.setString(1,ogrenci.getKart_no());
 		ps.setString(2, ders.getDers_no());
@@ -220,9 +243,8 @@ public class DersBean {
 		if(hafta_adi.equals("hafta6") )
 		{
 		
-			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci SET ders_ogrenci.hafta6 = 1"
-				+ "FROM ders_ogrenci INNER JOIN ogrenci ON ders_ogrenci.kart_no = ogrenci.kart_no"
-				+ " WHERE ogrenci.kart_no=? and ders_ogrenci.ders_no=?");
+			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci,ogrenci,ders SET ders_ogrenci.hafta1 = 1 "
+					+ "where ders_ogrenci.kart_no = ogrenci.kart_no and ogrenci.kart_no=? and ders_ogrenci.ders_no=?");
 		
 		ps.setString(1,ogrenci.getKart_no());
 		ps.setString(2, ders.getDers_no());
@@ -232,9 +254,8 @@ public class DersBean {
 		if(hafta_adi.equals("hafta7") )
 		{
 		
-			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci SET ders_ogrenci.hafta7 = 1"
-				+ "FROM ders_ogrenci INNER JOIN ogrenci ON ders_ogrenci.kart_no = ogrenci.kart_no"
-				+ " WHERE ogrenci.kart_no=? and ders_ogrenci.ders_no=?");
+			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci,ogrenci,ders SET ders_ogrenci.hafta1 = 1 "
+					+ "where ders_ogrenci.kart_no = ogrenci.kart_no and ogrenci.kart_no=? and ders_ogrenci.ders_no=?");
 		
 		ps.setString(1,ogrenci.getKart_no());
 		ps.setString(2, ders.getDers_no());
@@ -244,10 +265,8 @@ public class DersBean {
 		if(hafta_adi.equals("hafta8") )
 		{
 		
-			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci SET ders_ogrenci.hafta8 = 1"
-				+ "FROM ders_ogrenci INNER JOIN ogrenci ON ders_ogrenci.kart_no = ogrenci.kart_no"
-				+ " WHERE ogrenci.kart_no=? and ders_ogrenci.ders_no=?");
-		
+			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci,ogrenci,ders SET ders_ogrenci.hafta1 = 1 "
+					+ "where ders_ogrenci.kart_no = ogrenci.kart_no and ogrenci.kart_no=? and ders_ogrenci.ders_no=?");
 		ps.setString(1,ogrenci.getKart_no());
 		ps.setString(2, ders.getDers_no());
 		ps.executeUpdate();
@@ -256,10 +275,9 @@ public class DersBean {
 		if(hafta_adi.equals("hafta9") )
 		{
 		
-			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci SET ders_ogrenci.hafta9 = 1"
-				+ "FROM ders_ogrenci INNER JOIN ogrenci ON ders_ogrenci.kart_no = ogrenci.kart_no"
-				+ " WHERE ogrenci.kart_no=? and ders_ogrenci.ders_no=?");
-		
+			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci,ogrenci,ders SET ders_ogrenci.hafta1 = 1 "
+					+ "where ders_ogrenci.kart_no = ogrenci.kart_no and ogrenci.kart_no=? and ders_ogrenci.ders_no=?");
+			
 		ps.setString(1,ogrenci.getKart_no());
 		ps.setString(2, ders.getDers_no());
 		ps.executeUpdate();
@@ -268,9 +286,8 @@ public class DersBean {
 		if(hafta_adi.equals("hafta10") )
 		{
 		
-			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci SET ders_ogrenci.hafta10 = 1"
-				+ "FROM ders_ogrenci INNER JOIN ogrenci ON ders_ogrenci.kart_no = ogrenci.kart_no"
-				+ " WHERE ogrenci.kart_no=? and ders_ogrenci.ders_no=?");
+			PreparedStatement ps = connection.prepareStatement("UPDATE ders_ogrenci,ogrenci,ders SET ders_ogrenci.hafta1 = 1 "
+					+ "where ders_ogrenci.kart_no = ogrenci.kart_no and ogrenci.kart_no=? and ders_ogrenci.ders_no=?");
 		
 		ps.setString(1,ogrenci.getKart_no());
 		ps.setString(2, ders.getDers_no());
@@ -280,9 +297,8 @@ public class DersBean {
 		if(hafta_adi.equals("hafta11") )
 		{
 		
-			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci SET ders_ogrenci.hafta11 = 1"
-				+ "FROM ders_ogrenci INNER JOIN ogrenci ON ders_ogrenci.kart_no = ogrenci.kart_no"
-				+ " WHERE ogrenci.kart_no=? and ders_ogrenci.ders_no=?");
+			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci,ogrenci,ders SET ders_ogrenci.hafta1 = 1 "
+					+ "where ders_ogrenci.kart_no = ogrenci.kart_no and ogrenci.kart_no=? and ders_ogrenci.ders_no=?");
 		
 		ps.setString(1,ogrenci.getKart_no());
 		ps.setString(2, ders.getDers_no());
@@ -292,9 +308,8 @@ public class DersBean {
 		if(hafta_adi.equals("hafta12") )
 		{
 		
-			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci SET ders_ogrenci.hafta12 = 1"
-				+ "FROM ders_ogrenci INNER JOIN ogrenci ON ders_ogrenci.kart_no = ogrenci.kart_no"
-				+ " WHERE ogrenci.kart_no=? and ders_ogrenci.ders_no=?");
+			PreparedStatement ps = connection.prepareStatement( "UPDATE ders_ogrenci,ogrenci,ders SET ders_ogrenci.hafta1 = 1 "
+					+ "where ders_ogrenci.kart_no = ogrenci.kart_no and ogrenci.kart_no=? and ders_ogrenci.ders_no=?");
 		
 		ps.setString(1,ogrenci.getKart_no());
 		ps.setString(2, ders.getDers_no());
@@ -318,6 +333,7 @@ public class DersBean {
 	
 	public String ogr1YoklamaGetir()
 	{
+		 ogrlist.clear();
 		ogrenci ogr = new ogrenci();
 		
 	
@@ -343,7 +359,19 @@ public class DersBean {
 		 ogr.setHafta2(rs.getInt("hafta2"));
 		 ogr.setHafta3(rs.getInt("hafta3"));
 		 ogr.setHafta4(rs.getInt("hafta4"));
-		 ogr.setToplam(rs.getInt("hafta1")+rs.getInt("hafta2")+rs.getInt("hafta3")+ rs.getInt("hafta4"));
+		 ogr.setHafta5(rs.getInt("hafta5"));
+		 ogr.setHafta6(rs.getInt("hafta6"));
+		 ogr.setHafta7(rs.getInt("hafta7"));
+		 ogr.setHafta8(rs.getInt("hafta8"));
+		 ogr.setHafta9(rs.getInt("hafta9"));
+		 ogr.setHafta10(rs.getInt("hafta10"));
+		 ogr.setHafta11(rs.getInt("hafta11"));
+		 ogr.setHafta12(rs.getInt("hafta12"));
+		 ogr.setToplam(rs.getInt("hafta1")+rs.getInt("hafta2")+rs.getInt("hafta3")+ rs.getInt("hafta4")+
+				 rs.getInt("hafta5")
+				 +rs.getInt("hafta6")+rs.getInt("hafta7")+rs.getInt("hafta8")+rs.getInt("hafta9")+rs.getInt("hafta10")
+				 +rs.getInt("hafta11")+rs.getInt("hafta12") );
+		
 		 ogrlist.add(ogr);
 		 }
 		
@@ -365,12 +393,14 @@ public class DersBean {
 	{
 		ders ders2;
 		ogretmen ogrt1 = new ogretmen();
+		ogrt1= (ogretmen) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("loginOgrt");
+		
 	try
 	{
 		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/yoklama","root","root");
 		PreparedStatement ps = connection.prepareStatement( "SELECT * FROM DERS where ogret_no=?");
 		
-		ps.setInt(1, 1004 ); //Buraya bakýlacak.
+		ps.setString(1, ogrt1.getOgret_no() ); //Buraya bakýlacak. Giriþ yapan öðretmenin numarasý gelecek.
 		
 	
 		ResultSet rs    =    ps.executeQuery();
@@ -404,13 +434,14 @@ public class DersBean {
 	{
 		ders ders3;
 		ogrenci ogr1 = new ogrenci();
+		ogr1=(ogrenci) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("loginOgr");
 	try
 	{
 		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/yoklama","root","root");
 		PreparedStatement ps = connection.prepareStatement( "SELECT * FROM ders INNER JOIN ders_ogrenci"
 				+  " ON ders.ders_no=ders_ogrenci.ders_no where ders_ogrenci.ogren_no=?");
 		
-		ps.setInt(1, 20001 ); //Buraya bakýlacak.
+		ps.setString(1, ogr1.getOgren_no() ); //Buraya bakýlacak.
 		
 	
 		ResultSet rs    =    ps.executeQuery();

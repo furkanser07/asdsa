@@ -40,7 +40,7 @@ public class notBean {
 	
 	
 	public void initnotList(){
-		// ogretmenList : read from db
+	
 	
 	not not3;
 		

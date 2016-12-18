@@ -78,6 +78,9 @@ public class OgrenciBean {
 	public void initDersList() {
 		
 		ders drs;
+		ogrenci ogr3 = new ogrenci();
+		
+		ogr3=(ogrenci) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("loginOgr");
 		
 		try {
 			Connection connection = DriverManager.getConnection(
@@ -87,7 +90,7 @@ public class OgrenciBean {
 					.prepareStatement("SELECT * FROM ders_ogrenci INNER JOIN ders "
 							+ "ON ders.ders_no=ders_ogrenci.ders_no where ders_ogrenci.ogren_no=?");
 			
-			ps.setInt(1, 20001 );// Buraya giriþ yapan öðrencinin numarasý gelcek.
+			ps.setString(1, ogr3.getOgren_no() );// Buraya giriþ yapan öðrencinin numarasý gelcek.
 
 			ResultSet rs = ps.executeQuery();
 
@@ -115,6 +118,9 @@ public class OgrenciBean {
 	
 	public String ogrDersEkle()
 	{
+		ogrenci ogr3 = new ogrenci();
+		
+		ogr3=(ogrenci) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("loginOgr");
 		
 		try {
 
@@ -126,7 +132,7 @@ public class OgrenciBean {
 					+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 			
 			addEntry.setString(1, ders.getDers_no());
-			addEntry.setInt(2, 20001);// Buraya öðrenci numarasý gelcek.
+			addEntry.setString(2, ogr3.getOgren_no() );// Buraya giriþ yapan öðrencinin numarasý gelcek.
 			addEntry.setInt(3, 0);
 			addEntry.setInt(4, 1);
 			addEntry.setInt(5, 1);
