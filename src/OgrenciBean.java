@@ -16,6 +16,8 @@ import javax.faces.context.FacesContext;
 @ViewScoped
 public class OgrenciBean {
 
+
+	 
 	private int sil_id;
 	private ogrenci ogrenci;
 	private ders ders;

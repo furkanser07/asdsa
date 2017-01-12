@@ -113,7 +113,7 @@ public class DersBean {
 	public String tekogrYoklamaGetir()
 	{
 		 ogrlist1.clear();
-		//Bu kod çalýþtýðýnda tekrar getirmek isteyince eskisiyle beraber getiriyor.
+		
 		ogrenci ogr3 = new ogrenci();
 		
 		ogr3=(ogrenci) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("loginOgr");

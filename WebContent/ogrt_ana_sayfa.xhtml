@@ -151,7 +151,7 @@ input {
         <div class="col-md-3 left_col"><!-- Sol menüyü sığdırır.-->
           <div class="left_col scroll-view"><!-- bunun ne olduğunu sor-->
             <div class="navbar nav_title" style="border: 0;"><!-- bunun ne olduğunu sor-->
-              <a href="ogrt_ana_sayfa.xhtml" class="site_title"><span>Bitirme</span></a> <!-- sol üst köşe-->
+              <a href="ogrt_ana_sayfa.xhtml" class="site_title"><span>Bitirme Projesi</span></a> <!-- sol üst köşe-->
             </div>
 
           <div class="clearfix"></div><!-- bunun ne olduğunu sor-->
@@ -199,16 +199,22 @@ input {
             <nav>
               
 
-              <ul  class="nav navbar-nav navbar-right"> <!-- bu boşluklar.... ve o mesaj kutucuğu nerede?-->
-                <li class="">
-                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                   
-                    <span onclick="cikisYap()">Çıkış Yap</span>
-                  </a>
-                 
-                </li>
-<!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
-              </ul>
+              <ul class="nav navbar-nav navbar-right">
+							<!-- bu boşluklar.... ve o mesaj kutucuğu nerede?-->
+							<li class=""><a href="javascript:;"
+								class="user-profile dropdown-toggle" data-toggle="dropdown"
+								aria-expanded="false"> #{loginBean.ogrt1.isim} #{loginBean.ogrt1.soyisim} <span
+									class=" fa fa-angle-down"></span>
+							</a>
+								<ul class="dropdown-menu dropdown-usermenu pull-right">
+									
+									
+									<li><a href="javascript:;">Yardım</a></li>
+									<li><a href="login.xhtml"><i
+											class="fa fa-sign-out pull-right"></i> Çıkış Yap</a></li>
+								</ul></li>
+							<!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+						</ul>
             </nav>
           </div>
         </div>
@@ -220,13 +226,12 @@ input {
         <div class="col-md-6 " style="border:1px solid red;">
         Buraya fotoğrafı gelecek.
         <br></br>
-        <h:outputText value="Öğretmenin İsmi:"/>
+        <h:outputText  value="Öğretmenin İsmi:"/>
         <h:outputText value="#{loginBean.ogrt1.isim}"/>
         <br></br>
          <h:outputText value="Öğretmenin Soyİsmi:"/>
         <h:outputText value="#{loginBean.ogrt1.soyisim}"/>
         <br></br>
-        ve şifre değiştirme imkanı gelecek.
         
           <br></br>
           
